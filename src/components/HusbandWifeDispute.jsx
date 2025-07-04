@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const HusbandWifeDispute = () => {
   useEffect(() => {
-    document.title = "Husband Wife Dispute Solution | Our Astro Service";
+    document.title = "Husband Wife Dispute Solution | OM Astro Solution";
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const HusbandWifeDispute = () => {
                 <p>
                   Marriage, a sacred bond, faces modern life's trials, testing
                   resilience. When challenges strain relationships, individuals
-                  turn to astrologers like Our Astro Service for guidance. Trust
+                  turn to astrologers like OM Astro Solution for guidance. Trust
                   and love are essential, but conflicts can disrupt harmony. Om
                   Astro Service offers exceptional husband wife problem
                   Solution.

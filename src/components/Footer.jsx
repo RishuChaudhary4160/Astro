@@ -23,7 +23,7 @@ const Footer = () => {
           <Box className="text-center md:text-left mb-4 md:mb-0">
             <img
               src="/images/logo1.png"
-              alt="Our Astro Service"
+              alt="OM Astro Solution"
               className="h-12 mx-auto md:mx-0 mb-2"
             />
             <Box className="flex justify-center md:justify-start space-x-2">
@@ -65,10 +65,10 @@ const Footer = () => {
         <Box className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <Box>
             <Typography variant="h6" className="text-orange-500 mb-2">
-              About Our Astro Service
+              About OM Astro Solution
             </Typography>
             <Typography variant="body2">
-              Our Astro Service a top astrologer in India, with over a decade of
+              OM Astro Solution a top astrologer in India, with over a decade of
               experience. He specializes in Vedic astrology and offers solutions
               for things like love problem solution, love marriage problem,
               marriage problem solution, husband wife dispute, family problem
@@ -234,7 +234,7 @@ const Footer = () => {
           results may change starting with one individual then onto the next.
         </Typography>
         <Typography variant="body2" className="text-center">
-          Copyright © 2025 <b>Our Astro Service</b>. All Rights Reserved. |
+          Copyright © 2025 <b>OM Astro Solution</b>. All Rights Reserved. |
           Powered By:{" "}
           <a
             href="https://www.techspinsolutions.com/"

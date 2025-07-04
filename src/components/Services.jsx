@@ -1,45 +1,58 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Button,
+} from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import img1 from "../assets/images/1.1.png";
+import img2 from "../assets/images/2.1.png";
+import img3 from "../assets/images/3.1.png";
+import img4 from "../assets/images/4.1.png";
+import img5 from "../assets/images/5.1.png";
+import img6 from "../assets/images/7.1.png";
 const Services = () => {
   const services = [
     {
-      image: "/images/1.1.png",
+      image: img1,
       title: "Love Problem Solution",
       description:
-        "Our Astro Service is your top love problem solution Astrologer, specializing in love marriages. Love is a precious gift but can come with challenges like communication issues and relationship troubles.",
+        "OM Astro Solution is your top love problem solution Astrologer, specializing in love marriages. Love is a precious gift but can come with challenges like communication issues and relationship troubles.",
       link: "/love-problem-solution",
     },
     {
-      image: "/images/2.1.png",
+      image: img2,
       title: "Marriage Problem Solution",
       description:
         "When navigating hurdles on the path to marriage, astrology offers solutions. Whether due to planetary changes or chart discrepancies, it can address pre- and post-marriage issues.",
       link: "/marriage-problem-solution",
     },
     {
-      image: "/images/3.1.png",
+      image: img3,
       title: "Love Marriage Problem Solution",
       description:
-        "Increasingly, couples are turning to phone-based solutions for love marriage challenges. Our Astro Service, India's leading astrologer with over a decade of experience, provides immediate answers.",
+        "Increasingly, couples are turning to phone-based solutions for love marriage challenges. OM Astro Solution, India's leading astrologer with over a decade of experience, provides immediate answers.",
       link: "/love-marriage-problem-solution",
     },
     {
-      image: "/images/4.1.png",
+      image: img4,
       title: "Husband Wife Dispute Solution",
       description:
-        "Marriage, a sacred bond, faces modern life's trials, testing resilience. When challenges strain relationships, individuals turn to astrologers like Our Astro Service for guidance.",
+        "Marriage, a sacred bond, faces modern life's trials, testing resilience. When challenges strain relationships, individuals turn to astrologers like OM Astro Solution for guidance.",
       link: "/husband-wife-dispute-solution",
     },
     {
-      image: "/images/5.1.png",
+      image: img5,
       title: "Family Problem Solution",
       description:
         "At times, we encounter family conflicts that disrupt harmony and strain relationships among relatives. These issues can cause emotional turmoil as family matters deeply to us.",
       link: "/family-problem-solution",
     },
     {
-      image: "/images/7.1.png",
+      image: img6,
       title: "Get Your Love Back",
       description:
         "If you want to reunite with your loved one, it's possible. Begin by having an honest chat with your partner. Listen to their concerns and express your feelings as well.",
@@ -48,34 +61,50 @@ const Services = () => {
   ];
 
   return (
-    <div className="ast_service_wrapper ast_toppadder70 ast_bottompadder50">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div className="ast_heading">
-              <h1>
-                our <span>services</span>
-              </h1>
-              <p>
-                Connect with our team to get remedies for your love life. We
-                have pool of expert and qualified astrologer
-              </p>
-            </div>
-          </div>
-          {services.map((service, index) => (
-            <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
-              <div className="ast_service_box">
-                <img src={service.image} alt={service.title} />
-                <h4>{service.title}</h4>
-                <p>{service.description}</p>
-                <div className="clearfix"></div>
-                <Link to={service.link} className="ast_btn">
-                  Read More <i className="fa fa-long-arrow-right"></i>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div style={{ padding: "70px 0 50px", backgroundColor: "#f9f9f9" }}>
+      <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        <Typography variant="h4" component="h1">
+          our <span style={{ color: "#ff9800" }}>services</span>
+        </Typography>
+        <Typography variant="body1">
+          Connect with our team to get remedies for your love life. We have pool
+          of expert and qualified astrologer
+        </Typography>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
+        {services.map((service, index) => (
+          <Card key={index} style={{ width: "500px", textAlign: "center" }}>
+            <CardMedia
+              component="img"
+              height="200"
+              image={service.image}
+              alt={service.title}
+            />
+            <CardContent>
+              <Typography variant="h6" component="div">
+                {service.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph>
+                {service.description}
+              </Typography>
+              <Button
+                variant="contained"
+                color="warning"
+                href={service.link}
+                endIcon={<ArrowForwardIcon />}
+              >
+                Read More
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const LoveProblemSolution = () => {
   useEffect(() => {
-    document.title = "Love Problem Solution | Our Astro Service";
+    document.title = "Love Problem Solution | OM Astro Solution";
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const LoveProblemSolution = () => {
             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className="ast_about_info">
                 <p>
-                  Our Astro Service is your top love problem solution
+                  OM Astro Solution is your top love problem solution
                   Astrologer, specializing in love marriages. Love is a precious
                   gift but can come with challenges like communication issues
                   and relationship troubles. With his experience, Our Astro

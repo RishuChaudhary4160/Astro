@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const PhotoGallery = () => {
   useEffect(() => {
-    document.title = "Photo Gallery | Our Astro Service";
+    document.title = "Photo Gallery | OM Astro Solution";
   }, []);
 
   const photos = Array.from({ length: 44 }, (_, i) => {

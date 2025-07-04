@@ -1,11 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Box, Grid, Typography } from "@mui/material";
+import img1 from "../assets/images/ser-icon1.png";
+import img2 from "../assets/images/ser-icon2.png";
+import img3 from "../assets/images/ser-icon3.png";
+import img4 from "../assets/images/ser-icon4.png";
+import img5 from "../assets/images/timer_bg.webp";
 
 const CounterItem = ({ target, label, icon }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef;
+  const ref = useRef(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
     if (isVisible) {
       const duration = 2000;
       const stepTime = 50;
@@ -25,72 +45,77 @@ const CounterItem = ({ target, label, icon }) => {
 
       return () => clearInterval(timer);
     }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isVisible, target]);
 
   return (
-    <div ref={ref} className="col-lg-3 col-md-3 col-sm-6 col-12">
-      <div className="ast_counter">
-        <span>
-          <img src={icon} alt="counter" />
-        </span>
-        <h2 className="timer">{count}</h2>
-        <h4>{label}</h4>
-      </div>
-    </div>
+    <Box ref={ref} className="flex flex-col items-center text-center">
+      <Box
+        component="img"
+        src={icon}
+        alt="counter"
+        className="w-16 h-16 mb-2"
+      />
+      <Typography variant="h4" className="text-orange-500 font-bold">
+        {count}
+      </Typography>
+      <Typography variant="body2" className="text-white">
+        {label}
+      </Typography>
+    </Box>
   );
 };
 
 const Counter = () => {
   const counterData = [
-    { target: 20, label: "Years of Experience", icon: "/images/ser-icon1.png" },
-    { target: 75, label: "Type of Horoscope", icon: "/images/ser-icon2.png" },
-    { target: 200, label: "Expert Team", icon: "/images/ser-icon3.png" },
+    {
+      target: 20,
+      label: "Years of Experience",
+      icon: img1,
+    },
+    {
+      target: 75,
+      label: "Type of Horoscope",
+      icon: img2,
+    },
+    {
+      target: 200,
+      label: "Expert Team",
+      icon: img3,
+    },
     {
       target: 5000,
       label: "Satisfied Clients in Globally",
-      icon: "/images/ser-icon4.png",
+      icon: img4,
     },
   ];
 
   return (
-    <div className="ast_timer_wrapper ast_toppadder70 ast_bottompadder40">
-      <div className="ast_img_overlay"></div>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div className="ast_heading">
-              <h1>
-                now <span>we have</span>
-              </h1>
-            </div>
-          </div>
-          <div className="ast_counter_wrapper row">
-            {/* {counterData.map((item, index) => (
+    <Box
+      className="bg-teal-900 text-white py-8"
+      style={{
+        backgroundImage: `url(${img5})`,
+        backgroundSize: "cover",
+      }}
+    >
+      <Box className="container mx-auto text-center">
+        <Typography variant="h3" className="text-orange-500 mb-6">
+          Now <span className="font-bold">We Have</span>
+        </Typography>
+        <Grid container spacing={4} justifyContent="center" alignItems="center">
+          {counterData.map((item, index) => (
+            <Grid item key={index}>
               <CounterItem
-                key={index}
                 target={item.target}
                 label={item.label}
                 icon={item.icon}
               />
-            ))} */}
-          </div>
-        </div>
-      </div>
-    </div>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
   );
 };
 

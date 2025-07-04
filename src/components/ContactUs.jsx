@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const Contact = () => {
   useEffect(() => {
-    document.title = "Contact Us | Our Astro Service";
+    document.title = "Contact Us | OM Astro Solution";
   }, []);
 
   return (

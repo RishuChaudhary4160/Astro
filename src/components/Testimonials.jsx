@@ -6,37 +6,37 @@ const Testimonials = () => {
   const testimonials = [
     {
       image: "/images/c1.png",
-      text: "I am based in Delhi and post corona I faced a lot of issues in my work arena due to the pandemic. I was about to give up on my job when I came to know About Our Astro Service. I reached him sceptically, but solved my problems with his amazing calculations.",
+      text: "I am based in Delhi and post corona I faced a lot of issues in my work arena due to the pandemic. I was about to give up on my job when I came to know About OM Astro Solution. I reached him sceptically, but solved my problems with his amazing calculations.",
       name: "Honey Sharma, Architect",
       location: "India",
     },
     {
       image: "/images/c2.png",
-      text: "Due to work from home situation for the last few years, I have lost all contact with my friends. It put a toll on my mental health. I wasn't able to do my tasks on time and used to stay in my room only. My mom book an online consultation with Our Astro Service and everything changed.",
+      text: "Due to work from home situation for the last few years, I have lost all contact with my friends. It put a toll on my mental health. I wasn't able to do my tasks on time and used to stay in my room only. My mom book an online consultation with OM Astro Solution and everything changed.",
       name: "Raj Soni, It Specialist",
       location: "India",
     },
     {
       image: "/images/c1.png",
-      text: "I moved here two years ago due to studies. While my classes were about to start but my Visa wasn't confirming, I visited Our Astro Service with lots of doubts. He cleared all my doubts after checking my Kundali and helped me with some solutions.",
+      text: "I moved here two years ago due to studies. While my classes were about to start but my Visa wasn't confirming, I visited OM Astro Solution with lots of doubts. He cleared all my doubts after checking my Kundali and helped me with some solutions.",
       name: "Somya Lalwani, Student",
       location: "USA",
     },
     {
       image: "/images/c1.png",
-      text: "When I started my journey as a dance coordinator, I faced lots of issues. I gave up initially, but then with the constant insist of my parents I contacted Our Astro Service. He checked my kundali, did some calculations, and told me why such things were happening with me.",
+      text: "When I started my journey as a dance coordinator, I faced lots of issues. I gave up initially, but then with the constant insist of my parents I contacted OM Astro Solution. He checked my kundali, did some calculations, and told me why such things were happening with me.",
       name: "Ila Gomtis, Dancer",
       location: "India",
     },
     {
       image: "/images/c3.png",
-      text: "I am getting lot of loss in my business since last 3 years. I am heard About Our Astro Service, I meet him and took his advice for business growth, now my business running nicely and recover all losses with help of his business astrology advices.",
+      text: "I am getting lot of loss in my business since last 3 years. I am heard About OM Astro Solution, I meet him and took his advice for business growth, now my business running nicely and recover all losses with help of his business astrology advices.",
       name: "Nayan Patel, Business Owner",
       location: "Canada",
     },
     {
       image: "/images/c4.png",
-      text: "My parents not allowed me for love marriage. I have taken help of famous astrologer Our Astro Service. Now my parents and in-law parents allowed our love marriage. I am happily living my marriage life.",
+      text: "My parents not allowed me for love marriage. I have taken help of famous astrologer OM Astro Solution. Now my parents and in-law parents allowed our love marriage. I am happily living my marriage life.",
       name: "Avadh Bhadresi, Tutor",
       location: "Australia",
     },
@@ -62,7 +62,7 @@ const Testimonials = () => {
                 what client<span> says</span>
               </h1>
               <p>
-                We at Our Astro Service are eager to provide vedic astrology
+                We at OM Astro Solution are eager to provide vedic astrology
                 services. Read what our important customers have to say about
                 us.
               </p>

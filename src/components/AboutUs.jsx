@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Breadcrumb from "../components/Breadcrumb";
-
+import img1 from "../assets/images/welcome2.png";
 const About = () => {
   useEffect(() => {
-    document.title = "About Us | Our Astro Service";
+    document.title = "About Us | OM Astro Solution";
   }, []);
 
   return (
@@ -16,32 +16,28 @@ const About = () => {
             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className="ast_heading">
                 <h2>
-                  About <span>Our Astro Services</span>
+                  About <span>OM Astro Solutions</span>
                 </h2>
                 <p>
-                  Unlocking the Mysteries of the Cosmos with Our Astro Services
+                  Unlocking the Mysteries of the Cosmos with OM Astro Solutions
                 </p>
               </div>
             </div>
             <div className="col-lg-5 col-md-12 col-sm-12 col-12">
               <div className="ast_about_info_img">
-                <img
-                  src="/images/welcome2.png"
-                  className="img-thumbnail"
-                  alt="About"
-                />
+                <img src={img1} className="img-thumbnail" alt="About" />
               </div>
             </div>
             <div className="col-lg-7 col-md-12 col-sm-12 col-12">
               <div className="ast_about_info">
                 <h3>
-                  Our Astro Service: Your Premier Destination for Expert Vedic
+                  OM Astro Solution: Your Premier Destination for Expert Vedic
                   Astrology in India
                 </h3>
                 <p>
                   Are you in search of profound astrological insights and
                   guidance to navigate life's challenges? Look no further than
-                  Our Astro Service, your trusted partner in Vedic astrology
+                  OM Astro Solution, your trusted partner in Vedic astrology
                   based in India. Our mission is to provide you with top-notch
                   astrological solutions and help you find answers to your
                   deepest questions.
@@ -74,7 +70,7 @@ const About = () => {
               <div className="ast_about_info pt-5">
                 <h4>Comprehensive Astrological Services at Your Fingertips:</h4>
                 <p>
-                  At Our Astro Service, we understand that every individual is
+                  At OM Astro Solution, we understand that every individual is
                   unique. That's why we offer a wide range of services tailored
                   to your specific needs. Our team of top astrologers is skilled
                   in deciphering the intricate details of your birth chart,
@@ -86,7 +82,7 @@ const About = () => {
 
                 <h4>Harness the Power of Planetary Transitions:</h4>
                 <p>
-                  One of the key benefits of consulting with Our Astro Service
+                  One of the key benefits of consulting with OM Astro Solution
                   is gaining insight into the influence of planetary transitions
                   on your life. Our expert astrologers will help you understand
                   how planetary movements impact your experiences. Whether it's
@@ -125,7 +121,7 @@ const About = () => {
                 <p>
                   When you require assistance in decoding planetary positions
                   and seeking solutions for your life's challenges, don't
-                  hesitate to reach out to Our Astro Service. Our experienced
+                  hesitate to reach out to OM Astro Solution. Our experienced
                   astrologers in India are committed to providing you with
                   reliable and insightful astrological guidance.
                 </p>
@@ -137,7 +133,7 @@ const About = () => {
                   life, our dedicated team is here to guide you towards a
                   brighter future. Embrace the wisdom of Vedic astrology and
                   unlock the secrets to a more balanced and harmonious life with
-                  Our Astro Service.
+                  OM Astro Solution.
                 </p>
               </div>
             </div>
