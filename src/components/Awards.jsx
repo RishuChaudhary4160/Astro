@@ -2,17 +2,17 @@ import React from "react";
 
 const Awards = () => {
   const awards = [
-    "src/assets/images/awa/1.jpg",
-    "src/assets/images/awa/2.jpg",
-    "src/assets/images/awa/3.jpg",
-    "src/assets/images/awa/4.jpg",
-    "src/assets/images/awa/5.jpg",
-    "src/assets/images/awa/6.jpg",
-    "src/assets/images/awa/7.jpg",
-    "src/assets/images/awa/8.jpg",
-    "src/assets/images/awa/9.jpg",
-    "src/assets/images/awa/10.jpg",
-    "src/assets/images/awa/11.jpg",
+    "/images/awa/1.jpg",
+    "/images/awa/2.jpg",
+    "/images/awa/3.jpg",
+    "/images/awa/4.jpg",
+    "/images/awa/5.jpg",
+    "/images/awa/6.jpg",
+    "/images/awa/7.jpg",
+    "/images/awa/8.jpg",
+    "/images/awa/9.jpg",
+    "/images/awa/10.jpg",
+    "/images/awa/11.jpg",
   ];
 
   return (
