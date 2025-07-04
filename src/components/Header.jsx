@@ -81,7 +81,7 @@ const Header = () => {
       ],
     },
     { label: "Inquiry", to: "/inquiry" },
-    { label: "Contact Us", to: "/contact" },
+    { label: "Contact Us", to: "/contactus" },
   ];
 
   const drawerList = (
