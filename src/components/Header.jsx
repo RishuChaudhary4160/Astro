@@ -154,11 +154,11 @@ const Header = () => {
             <Box className="flex items-center space-x-2">
               <img
                 src="/images/logo.png"
-                alt="Our Astro Service"
+                alt="OM Astro Solution"
                 className="h-8"
               />
               <Typography variant="h6" className="text-white">
-                Our Astro Service
+                OM Astro Solution
               </Typography>
             </Box>
             <Box className="flex items-center space-x-4">

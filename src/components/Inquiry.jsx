@@ -11,7 +11,7 @@ const Inquiry = () => {
   });
 
   useEffect(() => {
-    document.title = "Inquiry | Our Astro Service";
+    document.title = "Inquiry | OM Astro Solution";
   }, []);
 
   const handleChange = (e) => {

@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const FamilyProblemSolution = () => {
   useEffect(() => {
-    document.title = "Family Problem Solution | Our Astro Service";
+    document.title = "Family Problem Solution | OM Astro Solution";
   }, []);
 
   return (

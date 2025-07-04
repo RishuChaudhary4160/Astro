@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, Grid, Typography } from "@mui/material";
 
 const ZodiacSigns = () => {
   const zodiacSigns = [
@@ -61,36 +62,52 @@ const ZodiacSigns = () => {
   ];
 
   return (
-    <div className="ast_horoscope_wrapper ast_toppadder70 ast_bottompadder40">
-      <div className="container-fluid">
-        <div className="row">
-          {zodiacSigns.map((sign, index) => (
-            <div key={index} className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="ast_horoscope_box">
-                <a href="javascript:void(0);">
-                  <span>
-                    <svg
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="32px"
-                      height="32px"
-                      viewBox="0 0 32 32"
-                    >
-                      <g>{/* <path d={sign.svg} /> */}</g>
-                    </svg>
-                  </span>
-                  <h4>
-                    {sign.name}
-                    <br />
-                    <strong>( {sign.hindi} )</strong>
-                  </h4>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <Box className="py-10 bg-gray-100">
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        {/* Top Row (6 signs) */}
+        {zodiacSigns.slice(0, 6).map((sign, index) => (
+          <Grid item xs={4} sm={2} key={index}>
+            <Box
+              className="flex flex-col items-center p-4 bg-orange-500 rounded-full text-white"
+              sx={{ width: 120, height: 120 }}
+            >
+              <Box
+                dangerouslySetInnerHTML={{
+                  __html: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 32 32"><g><path d="${sign.svg}" /></g></svg>`,
+                }}
+                className="mb-2"
+              />
+              <Typography variant="body2" className="text-center">
+                {sign.name}
+                <br />
+                <strong>({sign.hindi})</strong>
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+        {/* Bottom Row (6 signs) */}
+        {zodiacSigns.slice(6, 12).map((sign, index) => (
+          <Grid item xs={4} sm={2} key={index + 6}>
+            <Box
+              className="flex flex-col items-center p-4 bg-orange-500 rounded-full text-white"
+              sx={{ width: 120, height: 120 }}
+            >
+              <Box
+                dangerouslySetInnerHTML={{
+                  __html: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 32 32"><g><path d="${sign.svg}" /></g></svg>`,
+                }}
+                className="mb-2"
+              />
+              <Typography variant="body2" className="text-center">
+                {sign.name}
+                <br />
+                <strong>({sign.hindi})</strong>
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

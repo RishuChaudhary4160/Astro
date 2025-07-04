@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 const HoroscopeReading = () => {
   useEffect(() => {
-    document.title = "Horoscope Reading | Our Astro Service";
+    document.title = "Horoscope Reading | OM Astro Solution";
   }, []);
 
   return (

@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-
+import img1 from "../assets/images/banner4.jpg";
+import img2 from "../assets/images/banner5.jpg";
+import img3 from "../assets/images/banner6.jpg";
+import img4 from "../assets/images/banner1.jpg";
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
-    "/images/banner4.jpg",
-    "/images/banner5.jpg",
-    "/images/banner6.jpg",
-    "/images/banner1.jpg",
-    "/images/banner2.jpg",
-    "/images/banner3.jpg",
-  ];
+  const slides = [img1, img2, img3, img4];
 
   useEffect(() => {
     const interval = setInterval(() => {
