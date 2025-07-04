@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 import icon from "../assets/images/awa/2.jpg";
+import icon2 from "../assets/images/awa/1.jpg";
+import icon3 from "../assets/images/awa/2.jpg";
+import icon4 from "../assets/images/awa/3.jpg";
+import icon5 from "../assets/images/awa/4.jpg";
+import icon6 from "../assets/images/awa/5.jpg";
+import icon7 from "../assets/images/awa/6.jpg";
 const Awards = () => {
   useEffect(() => {
     document.title = "Awards | Om Astro Service";
   }, []);
+
+  const awards = [icon, icon2, icon3, icon4, icon5, icon6, icon7];
 
   return (
     <div>
@@ -27,22 +35,20 @@ const Awards = () => {
             <div className="col-lg-10 col-md-12 col-sm-12 col-12 offset-lg-1 offset-md-0 offset-sm-0 offset-0">
               <div className="ast_testimonials_slider ast_testimonials_slider1">
                 <div className="row">
-                  {/* {awards.map((award, index) => (
-                  <div
-                    key={index}
-                    className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4"
-                  >
-                    <div className="ast_service_slider_box">
-                      <img
-                        src={award}
-                        alt={`Award ${index + 1}`}
-                        className="img-fluid"
-                      />
+                  {awards.map((award, index) => (
+                    <div
+                      key={index}
+                      className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4"
+                    >
+                      <div className="ast_service_slider_box">
+                        <img
+                          src={award}
+                          alt={`Award ${index + 1}`}
+                          className="img-fluid"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))} */}
-
-                  <img src={icon} alt="Award 1" className="img-fluid" />
+                  ))}
                 </div>
               </div>
             </div>
