@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Breadcrumb from "../components/Breadcrumb",
-import icon from "../assets/images/asto solution/1.jpeg",
-import icon2 from "../assets/images/asto solution/2.jpeg",
-import icon3 from "../assets/images/asto solution/3.jpeg",
-import icon4 from "../assets/images/asto solution/4.jpeg",
+import Breadcrumb from "../components/Breadcrumb";
+import icon from "../assets/images/asto solution/1.jpeg";
+import icon2 from "../assets/images/asto solution/2.jpeg";
+import icon3 from "../assets/images/asto solution/3.jpeg";
+import icon4 from "../assets/images/asto solution/4.jpeg";
 const Awards = () => {
   useEffect(() => {
     document.title = "Awards | Om Astro Service";
