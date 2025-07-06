@@ -42,6 +42,7 @@ const Awards = () => {
                           src={award}
                           alt={`Award ${index + 1}`}
                           className="img-fluid"
+                          style={{ width: "450px" }}
                         />
                       </div>
                     </div>

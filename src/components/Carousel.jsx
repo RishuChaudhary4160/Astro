@@ -45,11 +45,10 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`carousel-item ${
-              index === currentSlide ? "active" : ""
-            }`}
+            className={`carousel-item ${index === currentSlide ? "active" : ""
+              }`}
           >
-            <img src={slide} alt={`Slide ${index + 1}`} className="d-block" />
+            <img src={slide} alt={`Slide ${index + 1}`} className="d-block" style={{ width: "450px" }} />
           </div>
         ))}
       </div>
