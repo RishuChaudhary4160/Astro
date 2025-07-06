@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import img1 from "../assets/images/banner4.jpg";
-import img2 from "../assets/images/banner5.jpg";
-import img3 from "../assets/images/banner6.jpg";
-import img4 from "../assets/images/banner1.jpg";
+import img1 from "../assets/images/asto solution/1.jpeg";
+import img2 from "../assets/images/asto solution/2.jpeg";
+import img3 from "../assets/images/asto solution/3.jpeg";
+import img4 from "../assets/images/asto solution/4.jpeg";
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -45,9 +45,8 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`carousel-item ${
-              index === currentSlide ? "active" : ""
-            }`}
+            className={`carousel-item ${index === currentSlide ? "active" : ""
+              }`}
           >
             <img src={slide} alt={`Slide ${index + 1}`} className="d-block" />
           </div>
