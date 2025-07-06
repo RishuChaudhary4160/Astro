@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
-import Breadcrumb from "../components/Breadcrumb";
-import icon from "../assets/images/awa/2.jpg";
-import icon2 from "../assets/images/awa/1.jpg";
-import icon3 from "../assets/images/awa/2.jpg";
-import icon4 from "../assets/images/awa/3.jpg";
-import icon5 from "../assets/images/awa/4.jpg";
-import icon6 from "../assets/images/awa/5.jpg";
-import icon7 from "../assets/images/awa/6.jpg";
+import Breadcrumb from "../components/Breadcrumb",
+import icon from "../assets/images/asto solution/1.jpeg",
+import icon2 from "../assets/images/asto solution/2.jpeg",
+import icon3 from "../assets/images/asto solution/3.jpeg",
+import icon4 from "../assets/images/asto solution/4.jpeg",
 const Awards = () => {
   useEffect(() => {
     document.title = "Awards | Om Astro Service";
   }, []);
 
-  const awards = [icon, icon2, icon3, icon4, icon5, icon6, icon7];
+  const awards = [icon, icon2, icon3, icon4];
 
   return (
     <div>
