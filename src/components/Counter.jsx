@@ -97,11 +97,13 @@ const Counter = () => {
       style={{
         backgroundImage: `url(${img5})`,
         backgroundSize: "cover",
+        textAlign: "center",
       }}
     >
       <Box className="container mx-auto text-center">
-        <Typography variant="h3" className="text-orange-500 mb-6">
-          Now <span className="font-bold">We Have</span>
+        <Typography variant="h4" component="h1">
+          Now {"  "}
+          <span style={{ color: "#ff9800" }}>We Have</span>
         </Typography>
         <Grid container spacing={4} justifyContent="center" alignItems="center">
           {counterData.map((item, index) => (
