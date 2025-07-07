@@ -15,13 +15,31 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/omLogo.jpg";
 import Facebook from "../assets/images/animation/icons8-facebook.gif";
 import Instagram from "../assets/images/animation/icons8-instagram.gif";
 import Whatsapp from "../assets/images/animation/icons8-whatsapp.gif";
 import Contact from "../assets/images/animation/icons8-contact-us.gif";
 
 const Footer = () => {
+  const logoStyle = {
+    width: "100px",
+    height: "100px",
+    objectFit: "cover",
+    backgroundSize: "cover",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    animation: "float 3s ease-in-out infinite",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  };
+
+  const [isHovered, setIsHovered] = React.useState(false);
+  const hoverStyle = isHovered
+    ? {
+        transform: "scale(1.05)",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+      }
+    : {};
   return (
     <Box
       className="bg-teal-900 text-white py-8"
@@ -34,7 +52,13 @@ const Footer = () => {
             <img
               src={logo}
               alt="OM Astro Solution"
-              className="h-12 mx-auto md:mx-0 mb-2"
+              style={{
+                ...logoStyle,
+                ...hoverStyle,
+              }}
+              className="h-8"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             />
             <Box sx={{ textAlign: "center" }}>
               <IconButton
