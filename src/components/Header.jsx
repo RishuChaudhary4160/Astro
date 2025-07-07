@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import {
   AppBar,
   Toolbar,
@@ -16,32 +15,106 @@ import {
   Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import PhoneIcon from "@mui/icons-material/Phone";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from "@mui/icons-material/Person";
+import CloseIcon from "@mui/icons-material/Close";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { styled } from "@mui/material/styles";
+import logo from "../assets/images/omLogo.jpg";
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: "transparent",
+  // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+  // borderBottom: "1px solid #e5e7eb",
+}));
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: theme.spacing(2, 0),
+}));
+
+const BrandTypography = styled(Typography)(({ theme }) => ({
+  color: "#111827",
+  fontWeight: "bold",
+  fontSize: "1.25rem",
+  textDecoration: "none",
+  "&:hover": {
+    textDecoration: "none",
+  },
+}));
+
+const NavButton = styled(Button)(({ theme }) => ({
+  color: "#374151",
+  fontWeight: 500,
+  fontSize: "0.875rem",
+  textTransform: "none",
+  padding: "8px 16px",
+  minWidth: "auto",
+  "&:hover": {
+    color: "#111827",
+    backgroundColor: "transparent",
+  },
+}));
+
+const IconButtonStyled = styled(IconButton)(({ theme }) => ({
+  color: "#374151",
+  padding: theme.spacing(1),
+  "&:hover": {
+    color: "#111827",
+    backgroundColor: "#f3f4f6",
+  },
+}));
+
+const StyledDrawer = styled(Drawer)(({ theme }) => ({
+  "& .MuiDrawer-paper": {
+    width: 320,
+    backgroundColor: "#ffffff",
+  },
+}));
+
+const DrawerHeader = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: theme.spacing(2),
+  borderBottom: "1px solid #e5e7eb",
+}));
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  "&:hover": {
+    backgroundColor: "#f3f4f6",
+  },
+  borderRadius: theme.spacing(1),
+  margin: theme.spacing(0.5, 1),
+}));
+
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  fontSize: "0.875rem",
+  "&:hover": {
+    backgroundColor: "#f3f4f6",
+  },
+}));
+
+const StyledMenu = styled(Menu)(({ theme }) => ({
+  "& .MuiPaper-root": {
+    marginTop: theme.spacing(1),
+    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    border: "1px solid #e5e7eb",
+    borderRadius: theme.spacing(1),
+  },
+}));
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [anchorElAbout, setAnchorElAbout] = useState(null);
   const [anchorElServices, setAnchorElServices] = useState(null);
   const [anchorElGallery, setAnchorElGallery] = useState(null);
-
-  const handleMenuOpen = (event, menu) => {
-    if (menu === "about") setAnchorElAbout(event.currentTarget);
-    if (menu === "services") setAnchorElServices(event.currentTarget);
-    if (menu === "gallery") setAnchorElGallery(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorElAbout(null);
-    setAnchorElServices(null);
-    setAnchorElGallery(null);
-  };
-
-  const toggleDrawer = (open) => () => {
-    setIsMenuOpen(open);
-  };
+  const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [cartCount, setCartCount] = useState(0);
+  const closeTimeoutRef = useRef(null);
 
   const menuItems = [
     { label: "Home", to: "/" },
@@ -84,203 +157,263 @@ const Header = () => {
     { label: "Contact Us", to: "/contactus" },
   ];
 
+  const handleMenuOpen = (event, menu) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    if (menu === "about") setAnchorElAbout(event.currentTarget);
+    if (menu === "services") setAnchorElServices(event.currentTarget);
+    if (menu === "gallery") setAnchorElGallery(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setAnchorElAbout(null);
+      setAnchorElServices(null);
+      setAnchorElGallery(null);
+    }, 100);
+  };
+
+  const toggleDrawer = (open) => () => {
+    setIsMenuOpen(open);
+  };
+
+  const toggleSubmenu = (label) => {
+    setOpenSubmenu(openSubmenu === label ? null : label);
+  };
+
+  const getAnchorEl = (label) => {
+    switch (label) {
+      case "About":
+        return anchorElAbout;
+      case "Services":
+        return anchorElServices;
+      case "Gallery":
+        return anchorElGallery;
+      default:
+        return null;
+    }
+  };
+
+  const logoStyle = {
+    width: "100px",
+    height: "100px",
+    objectFit: "cover",
+    backgroundSize: "cover",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    animation: "float 3s ease-in-out infinite",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  };
+
+  const [isHovered, setIsHovered] = React.useState(false);
+  const hoverStyle = isHovered
+    ? {
+        transform: "scale(1.05)",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+      }
+    : {};
+
   const drawerList = (
-    <List className="w-64 bg-gray-800 text-white">
-      {menuItems.map((item, index) => (
-        <div key={index}>
-          {item.submenu ? (
-            <>
-              <ListItem
-                button
-                onClick={(e) => handleMenuOpen(e, item.label.toLowerCase())}
-              >
-                <ListItemText primary={item.label} />
-              </ListItem>
-              <Menu
-                anchorEl={
-                  item.label === "About"
-                    ? anchorElAbout
-                    : item.label === "Services"
-                    ? anchorElServices
-                    : anchorElGallery
-                }
-                open={Boolean(
-                  item.label === "About"
-                    ? anchorElAbout
-                    : item.label === "Services"
-                    ? anchorElServices
-                    : anchorElGallery
-                )}
-                onClose={handleMenuClose}
-                className="bg-white mt-2"
-              >
-                {item.submenu.map((subItem, subIndex) => (
-                  <MenuItem
-                    key={subIndex}
-                    onClick={handleMenuClose}
-                    component={Link}
-                    to={subItem.to}
+    <Box>
+      <DrawerHeader>
+        <Box className="flex items-center space-x-2">
+          <img
+            src={logo}
+            alt="OM Astro Solution"
+            style={{
+              ...logoStyle,
+              ...hoverStyle,
+            }}
+            className="h-8"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          />
+        </Box>
+        <IconButton onClick={toggleDrawer(false)}>
+          <CloseIcon />
+        </IconButton>
+      </DrawerHeader>
+      <Box sx={{ padding: 2 }}>
+        <List>
+          {menuItems.map((item, index) => (
+            <Box key={index}>
+              {item.submenu ? (
+                <>
+                  <StyledListItem
+                    button
+                    onClick={() => toggleSubmenu(item.label)}
+                    sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    {subItem.label}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </>
-          ) : (
-            <ListItem
-              button
-              component={Link}
-              to={item.to}
-              onClick={toggleDrawer(false)}
-            >
-              <ListItemText primary={item.label} />
-            </ListItem>
-          )}
-        </div>
-      ))}
-    </List>
+                    <ListItemText
+                      primary={item.label}
+                      primaryTypographyProps={{
+                        fontWeight: 500,
+                        fontSize: "0.875rem",
+                      }}
+                    />
+                    {openSubmenu === item.label ? (
+                      <ExpandLessIcon />
+                    ) : (
+                      <ExpandMoreIcon />
+                    )}
+                  </StyledListItem>
+                  {openSubmenu === item.label && (
+                    <Box sx={{ paddingLeft: 2 }}>
+                      {item.submenu.map((subItem, subIndex) => (
+                        <StyledListItem
+                          key={subIndex}
+                          button
+                          component="a"
+                          href={subItem.to}
+                          onClick={toggleDrawer(false)}
+                        >
+                          <ListItemText
+                            primary={subItem.label}
+                            primaryTypographyProps={{
+                              fontSize: "0.8125rem",
+                              color: "#6b7280",
+                            }}
+                          />
+                        </StyledListItem>
+                      ))}
+                    </Box>
+                  )}
+                </>
+              ) : (
+                <StyledListItem
+                  button
+                  component="a"
+                  href={item.to}
+                  onClick={toggleDrawer(false)}
+                >
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      fontWeight: 500,
+                      fontSize: "0.875rem",
+                    }}
+                  />
+                </StyledListItem>
+              )}
+            </Box>
+          ))}
+        </List>
+      </Box>
+    </Box>
   );
 
   return (
-    <Box>
-      {/* Top Bar */}
-      <AppBar
-        position="static"
-        color="default"
-        className="bg-orange-500 text-white shadow-md"
-      >
-        <Container maxWidth="xl">
-          <Toolbar className="flex justify-between items-center py-2">
-            <Box className="flex items-center space-x-2">
-              <img
-                src="/images/logo.png"
-                alt="OM Astro Solution"
-                className="h-8"
-              />
-              <Typography variant="h6" className="text-white">
-                OM Astro Solution
-              </Typography>
-            </Box>
-            <Box className="flex items-center space-x-4">
-              <Typography variant="body2" className="flex items-center">
-                <PhoneIcon fontSize="small" className="text-white mr-1" />
-                <a
-                  href="tel:+919510613656"
-                  className="text-white hover:text-yellow-200"
-                >
-                  +91 95106 13656
-                </a>
-              </Typography>
-              <Typography variant="body2">
-                <a
-                  href="mailto:omastroserviceindia@gmail.com"
-                  className="text-white hover:text-yellow-200"
-                >
-                  omastroserviceindia@gmail.com
-                </a>
-              </Typography>
-              <IconButton
-                href="https://www.facebook.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                href="https://www.instagram.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton
-                href="https://api.whatsapp.com/send?phone=919510613656&text=I'd like to know more about your astrology services. Please contact me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <WhatsAppIcon />
-              </IconButton>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
+    <StyledAppBar position="static">
+      <Container maxWidth="xl">
+        <StyledToolbar>
+          {/* Logo/Brand */}
+          <Box className="flex items-center space-x-2">
+            <img
+              src={logo}
+              alt="OM Astro Solution"
+              style={{
+                ...logoStyle,
+                ...hoverStyle,
+              }}
+              className="h-8"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+          </Box>
 
-      {/* Navigation Bar */}
-      <AppBar position="static" color="default" className="bg-white shadow-md">
-        <Container maxWidth="xl">
-          <Toolbar className="flex justify-center space-x-6 py-2">
+          {/* Desktop Navigation */}
+          <Box
+            sx={{
+              display: { xs: "none", lg: "flex" },
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
             {menuItems.map((item, index) => (
-              <div key={index}>
+              <Box key={index}>
                 {item.submenu ? (
                   <>
-                    <Button
+                    <NavButton
                       onClick={(e) =>
                         handleMenuOpen(e, item.label.toLowerCase())
                       }
-                      className="text-blue-700 hover:text-blue-900"
+                      onMouseEnter={(e) =>
+                        handleMenuOpen(e, item.label.toLowerCase())
+                      }
+                      onMouseLeave={handleMenuClose}
+                      endIcon={<ExpandMoreIcon fontSize="small" />}
                     >
                       {item.label}
-                    </Button>
-                    <Menu
-                      anchorEl={
-                        item.label === "About"
-                          ? anchorElAbout
-                          : item.label === "Services"
-                          ? anchorElServices
-                          : anchorElGallery
-                      }
-                      open={Boolean(
-                        item.label === "About"
-                          ? anchorElAbout
-                          : item.label === "Services"
-                          ? anchorElServices
-                          : anchorElGallery
-                      )}
+                    </NavButton>
+                    <StyledMenu
+                      anchorEl={getAnchorEl(item.label)}
+                      open={Boolean(getAnchorEl(item.label))}
                       onClose={handleMenuClose}
-                      className="bg-white mt-2"
+                      onMouseEnter={() => {
+                        if (closeTimeoutRef.current) {
+                          clearTimeout(closeTimeoutRef.current);
+                        }
+                      }}
+                      onMouseLeave={handleMenuClose}
                     >
                       {item.submenu.map((subItem, subIndex) => (
-                        <MenuItem
+                        <StyledMenuItem
                           key={subIndex}
                           onClick={handleMenuClose}
-                          component={Link}
-                          to={subItem.to}
-                          className="text-gray-800 hover:bg-gray-100"
+                          component="a"
+                          href={subItem.to}
                         >
                           {subItem.label}
-                        </MenuItem>
+                        </StyledMenuItem>
                       ))}
-                    </Menu>
+                    </StyledMenu>
                   </>
                 ) : (
-                  <Button
-                    component={Link}
-                    to={item.to}
-                    className="text-blue-700 hover:text-blue-900"
-                  >
+                  <NavButton component="a" href={item.to}>
                     {item.label}
-                  </Button>
+                  </NavButton>
                 )}
-              </div>
+              </Box>
             ))}
-            <IconButton
-              className="lg:hidden text-gray-800 ml-auto"
+          </Box>
+
+          {/* Right Icons */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* Search Icon */}
+            <IconButtonStyled aria-label="search">
+              <SearchIcon fontSize="small" />
+            </IconButtonStyled>
+
+            {/* User Icon */}
+            <IconButtonStyled aria-label="account">
+              <PersonIcon fontSize="small" />
+            </IconButtonStyled>
+
+            {/* Mobile Menu Button */}
+            <IconButtonStyled
+              sx={{ display: { lg: "none" }, marginLeft: 1 }}
               onClick={toggleDrawer(true)}
+              aria-label="menu"
             >
               <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </Container>
-      </AppBar>
+            </IconButtonStyled>
+          </Box>
+        </StyledToolbar>
+      </Container>
 
       {/* Mobile Drawer */}
-      <Drawer anchor="right" open={isMenuOpen} onClose={toggleDrawer(false)}>
+      <StyledDrawer
+        anchor="right"
+        open={isMenuOpen}
+        onClose={toggleDrawer(false)}
+      >
         {drawerList}
-      </Drawer>
-    </Box>
+      </StyledDrawer>
+    </StyledAppBar>
   );
 };
 
