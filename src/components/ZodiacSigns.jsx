@@ -15,6 +15,11 @@ import Cancer from "../assets/images/animation/Cancer.mp4";
 import Leo from "../assets/images/animation/Leo.mp4";
 import Virgo from "../assets/images/animation/Virgo.mp4";
 import Libra from "../assets/images/animation/Libra.mp4";
+import Aquarius from "../assets/images/animation/Aquarius.mp4";
+import Capricorn from "../assets/images/animation/Capricorn.mp4";
+import Pisces from "../assets/images/animation/Pisces.mp4";
+import Scorpio from "../assets/images/animation/Scorpio.mp4";
+import Sagittarius from "../assets/images/animation/Sagittarius.mp4";
 import { Pages } from "@mui/icons-material";
 
 const ZodiacSigns = () => {
@@ -53,27 +58,27 @@ const ZodiacSigns = () => {
     {
       name: "Scorpio",
       hindi: "वृश्चिक",
-      animation: aries,
+      animation: Scorpio,
     },
     {
       name: "Sagittarius",
       hindi: "धनु",
-      animation: Cancer,
+      animation: Sagittarius,
     },
     {
       name: "Capricorn",
       hindi: "मकर",
-      animation: Gemini,
+      animation: Capricorn,
     },
     {
       name: "Aquarius",
       hindi: "कुम्भ",
-      animation: Leo,
+      animation: Aquarius,
     },
     {
       name: "Pisces",
       hindi: "मीन",
-      animation: Libra,
+      animation: Pisces,
     },
   ];
 

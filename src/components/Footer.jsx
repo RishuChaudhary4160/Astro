@@ -10,6 +10,7 @@ import {
   ListItemText,
   Divider,
   Grid,
+  Avatar,
 } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -20,6 +21,7 @@ import Facebook from "../assets/images/animation/icons8-facebook.gif";
 import Instagram from "../assets/images/animation/icons8-instagram.gif";
 import Whatsapp from "../assets/images/animation/icons8-whatsapp.gif";
 import Contact from "../assets/images/animation/icons8-contact-us.gif";
+import footer_background from "../assets/images/footer_background.jpg";
 
 const Footer = () => {
   const logoStyle = {
@@ -42,81 +44,114 @@ const Footer = () => {
     : {};
   return (
     <Box
+      mt={3}
       className="bg-teal-900 text-white py-8"
-      sx={{ backgroundColor: "#536e81" }}
+      sx={{
+        backgroundColor: "#536e81",
+        backgroundImage: `url(${footer_background})`,
+        color: "white",
+        objectFit: "cover",
+      }}
+      p={2}
     >
       <Grid mt={5}>
         {/* <Container maxWidth="lg"> */}
         <Box mt={3}>
-          <Box mt={5} sx={{ textAlign: "center" }}>
-            <img
-              src={logo}
-              alt="OM Astro Solution"
-              style={{
-                ...logoStyle,
-                ...hoverStyle,
-              }}
-              className="h-8"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            />
-            <Box sx={{ textAlign: "center" }}>
-              <IconButton
-                id="facebook-icon"
-                href="https://www.facebook.com/profile.php?id=100069020956273&mibextid=rS40aB7S9Ucbxw6v"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <img
-                  src={Facebook} // assuming Facebook is imported .gif
-                  alt="Facebook icon"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    background: "none",
-                  }}
-                />
-              </IconButton>
-              <IconButton
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <img
-                  src={Instagram} // assuming Facebook is imported .gif
-                  alt="Facebook icon"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </IconButton>
-              <IconButton
-                href="https://api.whatsapp.com/send?phone=9417339708&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <img
-                  src={Whatsapp} // assuming Facebook is imported .gif
-                  alt="Facebook icon"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </IconButton>
-              <IconButton
-                href="tel:+9417339708"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <img
-                  src={Contact} // assuming Facebook is imported .gif
-                  alt="Facebook icon"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </IconButton>
-            </Box>
-          </Box>
+          <Grid
+            mt={5}
+            sx={{
+              display:'flex',
+              justifyContent:'center'
+            }}
+          >
+            <Grid>
+              <Grid sx={{textAlignLast: 'center'}}>
+
+              <img
+                src={logo}
+                alt="OM Astro Solution"
+                className="h-12 mx-auto md:mx-0 mb-2"
+                style={{ height: "10rem", width: "10rem" }}
+              />
+              </Grid>
+              <Box>
+                <IconButton
+                  id="facebook-icon"
+                  href="https://www.facebook.com/omastroservice/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-yellow-300"
+                >
+                  <Avatar>
+                    <img
+                      src={Facebook} // assuming Facebook is imported .gif
+                      alt="Facebook icon"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "none",
+                        background: "none",
+                      }}
+                    />
+                  </Avatar>
+                </IconButton>
+                <IconButton
+                  href="https://www.instagram.com/omastroservice/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-yellow-300"
+                >
+                  <Avatar>
+                    <img
+                      src={Instagram} // assuming Facebook is imported .gif
+                      alt="Facebook icon"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Avatar>
+                </IconButton>
+                <IconButton
+                  href="https://api.whatsapp.com/send?phone=919510613656&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-yellow-300"
+                >
+                  <Avatar>
+                    <img
+                      src={Whatsapp} // assuming Facebook is imported .gif
+                      alt="Facebook icon"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "none",
+                      }}
+                    />
+                  </Avatar>
+                </IconButton>
+                <IconButton
+                  href="tel:+919510613656"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-yellow-300"
+                >
+                  <Avatar>
+                    <img
+                      src={Contact} // assuming Facebook is imported .gif
+                      alt="Facebook icon"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Avatar>
+                </IconButton>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
         <Grid sx={{ display: "flex", justifyContent: "space-evenly" }}>
           <Grid sx={{ display: "flex", justifyContent: "center" }}>
@@ -148,7 +183,7 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500 mb-2">
                 Quick Links
               </Typography>
-              <List>
+              <List sx={{ textDecoration: "underline" }}>
                 <ListItem>
                   <Link to="/" className="text-white hover:text-yellow-300">
                     Home
@@ -200,7 +235,7 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500">
                 Our Services
               </Typography>
-              <List sx={{}}>
+              <List sx={{ textDecoration: "underline" }}>
                 <ListItem>
                   <Link
                     to="/love-problem-solution"
@@ -255,10 +290,10 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500 mb-2">
                 Get In Touch
               </Typography>
-              <List>
+              <List sx={{ textDecoration: "underline" }}>
                 <ListItem>
                   <Typography variant="body2">
-                    <span className="mr-2">🏠</span>Chandigarh, India
+                    <span className="mr-2">🏠</span>Ahmedabad, Gujarat, India
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -276,10 +311,10 @@ const Footer = () => {
                   <Typography variant="body2">
                     <span className="mr-2">📞</span>
                     <a
-                      href="tel:+91 94173 39708"
+                      href="tel:+9999999999999"
                       className="text-white hover:text-yellow-300"
                     >
-                      +91 94173 39708
+                      +91 0000000 999999
                     </a>
                   </Typography>
                 </ListItem>
@@ -319,7 +354,7 @@ const Footer = () => {
         {/* Fixed Call & WhatsApp Buttons */}
         <Box className="fixed bottom-4 left-4 flex space-x-2 z-50">
           <IconButton
-            href="tel:+91 94173 39708"
+            href="tel:+919510613656"
             className="bg-red-500 text-white hover:bg-red-600"
           >
             <PhoneIcon />
