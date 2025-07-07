@@ -14,6 +14,7 @@ import img3 from "../assets/images/3.1.png";
 import img4 from "../assets/images/4.1.png";
 import img5 from "../assets/images/5.1.png";
 import img6 from "../assets/images/7.1.png";
+import "../components/css/Home.css";
 const Services = () => {
   const services = [
     {
@@ -63,8 +64,15 @@ const Services = () => {
   return (
     <div style={{ padding: "70px 0 50px", backgroundColor: "#f9f9f9" }}>
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <Typography variant="h4" component="h1">
-          Our <span style={{ color: "#ff9800" }}>Services</span>
+        <Typography
+          sx={{
+            fontSize: "3rem",
+            fontWeight: "bold",
+          }}
+          className="header-why"
+          mb={5}
+        >
+          Our <span style={{ color: "#f28c38" }}>Services</span>
         </Typography>
         <Typography variant="body1">
           Connect with our team to get remedies for your love life. We have pool

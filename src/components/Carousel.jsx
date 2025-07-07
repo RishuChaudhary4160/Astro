@@ -56,10 +56,11 @@ const Carousel = () => {
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", // Subtle shadow
         backgroundColor: "#f5f5f5", // Light background
         marginTop: "30px",
+        padding:'1rem'
       }}
     >
       {/* Carousel Images */}
-      <div style={{ position: "relative", width: "100%", height: "400px" }}>
+      <div style={{ position: "relative", width: "100%", height: "400px",padding:'1rem' }}>
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -98,7 +99,7 @@ const Carousel = () => {
       </div>
 
       {/* Progress Bar */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           bottom: 0,
@@ -106,7 +107,7 @@ const Carousel = () => {
           height: "4px",
           backgroundColor: "rgba(0, 0, 0, 0.1)",
         }}
-      >
+       >
         <div
           style={{
             width: `${progress}%`,
@@ -115,7 +116,7 @@ const Carousel = () => {
             transition: "width 0.016s linear", // Smooth progress
           }}
         ></div>
-      </div>
+      </div> */}
 
       {/* Carousel Indicators */}
       <div

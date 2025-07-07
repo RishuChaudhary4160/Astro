@@ -60,7 +60,8 @@ const Testimonials = () => {
   return (
     <div className="ast_testimonial_wrapper ast_toppadder70 ast_bottompadder70 bg1">
       <div className="container">
-        <div className="row">
+        <div className="row"
+        >
           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
             <div className="ast_heading" style={{ textAlign: "center" }}>
               <Typography variant="h4" component="h1">
@@ -83,7 +84,7 @@ const Testimonials = () => {
                 >
                   ‹
                 </button>
-                <div className="ast_testimonials_slider_box">
+                <div className="ast_testimonials_slider_box" style={{textAlign:'center'}}>
                   <img
                     src={testimonials[currentTestimonial].image}
                     alt="Testimonial"
