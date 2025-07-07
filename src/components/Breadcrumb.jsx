@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import img from "../assets/images/timer_bg.webp";
 import {
   Box,
   Typography,
@@ -7,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-const CustomBreadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
+const CustomBreadcrumbs = styled(MuiBreadcrumbs)(() => ({
   "& .MuiBreadcrumbs-ol": {
     background: "linear-gradient(to right,)",
     padding: "10px 20px",
@@ -24,7 +25,7 @@ const CustomBreadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
       left: 0,
       width: "100%",
       height: "100%",
-      background: "url('../src/assets/images/timer_bg.webp') no-repeat center",
+      background: `url(${img}) no-repeat center"`,
       opacity: 0.3,
       zIndex: 0,
     },
@@ -70,8 +71,7 @@ const Breadcrumb = ({ title, parentLink, parentTitle }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          background:
-            "url('../src/assets/images/timer_bg.webp') no-repeat center",
+          background: `url(${img}) no-repeat center`,
           opacity: 0.3,
           zIndex: 0,
         }}
