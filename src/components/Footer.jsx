@@ -9,65 +9,91 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Grid,
 } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import logo from "../assets/images/logo.png";
+import Facebook from "../assets/images/animation/icons8-facebook.gif";
+import Instagram from "../assets/images/animation/icons8-instagram.gif";
+import Whatsapp from '../assets/images/animation/icons8-whatsapp.gif';
+import Contact from '../assets/images/animation/icons8-contact-us.gif'
 
 const Footer = () => {
   return (
-    <Box className="bg-teal-900 text-white py-8">
-      <Container maxWidth="lg">
-        <Box className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <Box className="text-center md:text-left mb-4 md:mb-0">
+    <Box className="bg-teal-900 text-white py-8" sx={{backgroundColor:'#536e81'}}>
+      <Grid mt={5}>
+      {/* <Container maxWidth="lg"> */}
+      <Box mt={3} >
+        <Box mt={5} >
+          <img
+            src={logo}
+            alt="OM Astro Solution"
+            className="h-12 mx-auto md:mx-0 mb-2"
+          />
+          <Box >
+            <IconButton
+            id="facebook-icon"
+              href="https://www.facebook.com/omastroservice/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300"
+            >
+              <img
+                src={Facebook} // assuming Facebook is imported .gif
+                alt="Facebook icon"
+                style={{ width: "100%", height: "100%", objectFit: "cover",background:'none' }}
+              />
+            </IconButton>
+            <IconButton
+              href="https://www.instagram.com/omastroservice/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300"
+            >
+                <img
+                src={Instagram} // assuming Facebook is imported .gif
+                alt="Facebook icon"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </IconButton>
+            <IconButton
+              href="https://api.whatsapp.com/send?phone=919510613656&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300"
+            >
+        <img
+                src={Whatsapp} // assuming Facebook is imported .gif
+                alt="Facebook icon"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </IconButton>
+            <IconButton
+              href="tel:+919510613656"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300"
+            >
             <img
-              src="/images/logo1.png"
-              alt="OM Astro Solution"
-              className="h-12 mx-auto md:mx-0 mb-2"
-            />
-            <Box className="flex justify-center md:justify-start space-x-2">
-              <IconButton
-                href="https://www.facebook.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                href="https://www.instagram.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton
-                href="https://api.whatsapp.com/send?phone=919510613656&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <WhatsAppIcon />
-              </IconButton>
-              <IconButton
-                href="tel:+919510613656"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-300"
-              >
-                <PhoneIcon />
-              </IconButton>
-            </Box>
+                src={Contact} // assuming Facebook is imported .gif
+                alt="Facebook icon"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </IconButton>
           </Box>
         </Box>
-        <Box className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Box>
+      </Box>
+      <Grid sx={{ display: "flex", justifyContent:'space-evenly' }}>
+        <Grid sx={{ display: "flex", justifyContent: "center" }}>
+          <Grid sx={{ width: "45rem" }} mt={4}>
+            <Grid mt={2}>
             <Typography variant="h6" className="text-orange-500 mb-2">
               About OM Astro Solution
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" sx={{ textAlign: "center" }}>
               OM Astro Solution a top astrologer in India, with over a decade of
               experience. He specializes in Vedic astrology and offers solutions
               for things like love problem solution, love marriage problem,
@@ -75,8 +101,11 @@ const Footer = () => {
               solution, horoscopes reading and helping with everyday life
               problems.
             </Typography>
-          </Box>
-          <Box>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid sx={{ display: "flex", justifyContent: "space-between",width:'60rem' }} mt={5}>
+          <Box id="Quick_Links">
             <Typography variant="h6" className="text-orange-500 mb-2">
               Quick Links
             </Typography>
@@ -128,11 +157,11 @@ const Footer = () => {
               </ListItem>
             </List>
           </Box>
-          <Box>
-            <Typography variant="h6" className="text-orange-500 mb-2">
+          <Box id="Our_Services">
+            <Typography variant="h6" className="text-orange-500">
               Our Services
             </Typography>
-            <List>
+            <List sx={{}}>
               <ListItem>
                 <Link
                   to="/love-problem-solution"
@@ -183,7 +212,7 @@ const Footer = () => {
               </ListItem>
             </List>
           </Box>
-          <Box>
+          <Box id="Get_In_Touch">
             <Typography variant="h6" className="text-orange-500 mb-2">
               Get In Touch
             </Typography>
@@ -225,27 +254,28 @@ const Footer = () => {
               </ListItem>
             </List>
           </Box>
-        </Box>
-        <Divider className="my-6 bg-gray-600" />
-        <Typography variant="body2" className="text-center mb-2">
-          <b>Disclaimer :</b> There are no guarantees that every individual
-          using this assist will with getting their optimal results doubtlessly
-          Astrological results to depend upon a huge load of factors and the
-          results may change starting with one individual then onto the next.
-        </Typography>
-        <Typography variant="body2" className="text-center">
-          Copyright © 2025 <b>OM Astro Solution</b>. All Rights Reserved. |
-          Powered By:{" "}
-          <a
-            href="https://www.techspinsolutions.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-yellow-300"
-          >
-            Techspin Solutions
-          </a>
-        </Typography>
-      </Container>
+        </Grid>
+      </Grid>
+      <Divider className="my-6 bg-gray-600" />
+      <Typography variant="body2" className="text-center mb-2">
+        <b>Disclaimer :</b> There are no guarantees that every individual using
+        this assist will with getting their optimal results doubtlessly
+        Astrological results to depend upon a huge load of factors and the
+        results may change starting with one individual then onto the next.
+      </Typography>
+      <Typography variant="body2" className="text-center">
+        Copyright © 2025 <b>OM Astro Solution</b>. All Rights Reserved. |
+        Powered By:{" "}
+        <a
+          href="https://www.techspinsolutions.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-yellow-300"
+        >
+          Techspin Solutions
+        </a>
+      </Typography>
+      {/* </Container> */}
 
       {/* Fixed Call & WhatsApp Buttons */}
       <Box className="fixed bottom-4 left-4 flex space-x-2 z-50">
@@ -264,7 +294,9 @@ const Footer = () => {
           <WhatsAppIcon />
         </IconButton>
       </Box>
+    </Grid>
     </Box>
+    
   );
 };
 
