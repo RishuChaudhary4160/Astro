@@ -25,8 +25,8 @@ import logo from "../assets/images/omLogo.jpg";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: "transparent",
-  // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-  // borderBottom: "1px solid #e5e7eb",
+  boxShadow: "none",
+  borderBottom: "none",
 }));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
