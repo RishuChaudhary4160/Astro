@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import c1 from '../assets/images/c1.png';
-import c2 from '../assets/images/c2.png';
-import c3 from '../assets/images/c3.png';
-import c4 from '../assets/images/c4.png'
+import c1 from "../assets/images/c1.png";
+import c2 from "../assets/images/c2.png";
+import c3 from "../assets/images/c3.png";
+import c4 from "../assets/images/c4.png";
 import { Typography } from "@mui/material";
 
 const Testimonials = () => {
@@ -62,10 +62,11 @@ const Testimonials = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div className="ast_heading">
-              <h2>
-                what client says
-              </h2>
+            <div className="ast_heading" style={{ textAlign: "center" }}>
+              <Typography variant="h4" component="h1">
+                What {"  "}
+                <span style={{ color: "#ff9800" }}>client says</span>
+              </Typography>
               <p>
                 We at OM Astro Solution are eager to provide vedic astrology
                 services. Read what our important customers have to say about
@@ -88,7 +89,9 @@ const Testimonials = () => {
                     alt="Testimonial"
                   />
                   <div className="ast_testimonials_slider_box_text">
-                    <Typography sx={{width:'80rem'}}>{testimonials[currentTestimonial].text}</Typography>
+                    <Typography sx={{ width: "80rem" }}>
+                      {testimonials[currentTestimonial].text}
+                    </Typography>
                     <h4>
                       {testimonials[currentTestimonial].name}
                       <span>{testimonials[currentTestimonial].location}</span>

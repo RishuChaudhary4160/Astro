@@ -25,10 +25,10 @@ const WelcomeAstro = () => {
           >
             <Typography variant="h4" component="h1">
               Welcome to{" "}
-              <span style={{ color: "#ff9800" }}>Om Astro Services</span>
+              <span style={{ color: "#ff9800" }}>Om Astro Solution</span>
             </Typography>
             <Typography variant="body1">
-              Unlocking the Mysteries of the Cosmos with Om Astro Services
+              Unlocking the Mysteries of the Cosmos with Om Astro Solution
             </Typography>
           </Box>
           <Grid
