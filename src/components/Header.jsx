@@ -20,6 +20,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import logo from '../assets/images/logo1.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -153,13 +154,10 @@ const Header = () => {
           <Toolbar className="flex justify-between items-center py-2">
             <Box className="flex items-center space-x-2">
               <img
-                src="/images/logo.png"
+                src={logo}
                 alt="OM Astro Solution"
                 className="h-8"
               />
-              <Typography variant="h6" className="text-white">
-                OM Astro Solution
-              </Typography>
             </Box>
             <Box className="flex items-center space-x-4">
               <Typography variant="body2" className="flex items-center">

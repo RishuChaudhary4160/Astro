@@ -16,11 +16,15 @@ import PhotoGallery from "./components/PhotoGallery";
 import VideoGallery from "./components/VideoGallery";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Inquiry from "./components/Inquiry";
+// import background from "./assets/images/timer_bg.webp"
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{
+        // backgroundImage: `url(${background})`,
+        //         backgroundSize: "cover",  
+      }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
