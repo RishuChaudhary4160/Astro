@@ -20,8 +20,10 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logo from '../assets/images/logo1.png'
-
+import logo from "../assets/images/logo1.png";
+import Facebook from "../assets/images/animation/icons8-facebook.gif";
+import Instagram from "../assets/images/animation/icons8-instagram.gif";
+import Whatsapp from "../assets/images/animation/icons8-whatsapp.gif";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [anchorElAbout, setAnchorElAbout] = useState(null);
@@ -150,126 +152,133 @@ const Header = () => {
         color="default"
         className="bg-orange-500 text-white shadow-md"
       >
+        <Box sx={{ display: "table-cell", float: "right" }}>
+          <Typography variant="body2" className="flex items-center">
+            <PhoneIcon fontSize="small" className="text-white mr-1" />
+            <a
+              href="tel:+919510613656"
+              className="text-white hover:text-yellow-200"
+            >
+              +91 94173 39708
+            </a>
+          </Typography>
+          <Typography variant="body2">
+            <a
+              href="mailto:omastroserviceindia@gmail.com"
+              className="text-white hover:text-yellow-200"
+            >
+              omastroserviceindia@gmail.com
+            </a>
+          </Typography>
+          <IconButton
+            id="facebook-icon"
+            href="https://www.facebook.com/profile.php?id=100069020956273&mibextid=rS40aB7S9Ucbxw6v"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-yellow-300"
+          >
+            <img
+              src={Facebook} // assuming Facebook is imported .gif
+              alt="Facebook icon"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </IconButton>
+          <IconButton
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-yellow-300"
+          >
+            <img
+              src={Instagram} // assuming Facebook is imported .gif
+              alt="Facebook icon"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </IconButton>
+          <IconButton
+            href="https://api.whatsapp.com/send?phone=9417339708&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-yellow-300"
+          >
+            <img
+              src={Whatsapp} // assuming Facebook is imported .gif
+              alt="Facebook icon"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </IconButton>
+        </Box>
         <Container maxWidth="xl">
           <Toolbar className="flex justify-between items-center py-2">
             <Box className="flex items-center space-x-2">
-              <img
-                src={logo}
-                alt="OM Astro Solution"
-                className="h-8"
-              />
+              <img src={logo} alt="OM Astro Solution" className="h-8" />
             </Box>
-            <Box className="flex items-center space-x-4">
-              <Typography variant="body2" className="flex items-center">
-                <PhoneIcon fontSize="small" className="text-white mr-1" />
-                <a
-                  href="tel:+919510613656"
-                  className="text-white hover:text-yellow-200"
-                >
-                  +91 95106 13656
-                </a>
-              </Typography>
-              <Typography variant="body2">
-                <a
-                  href="mailto:omastroserviceindia@gmail.com"
-                  className="text-white hover:text-yellow-200"
-                >
-                  omastroserviceindia@gmail.com
-                </a>
-              </Typography>
-              <IconButton
-                href="https://www.facebook.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                href="https://www.instagram.com/omastroservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton
-                href="https://api.whatsapp.com/send?phone=919510613656&text=I'd like to know more about your astrology services. Please contact me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-yellow-200"
-              >
-                <WhatsAppIcon />
-              </IconButton>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-
-      {/* Navigation Bar */}
-      <AppBar position="static" color="default" className="bg-white shadow-md">
-        <Container maxWidth="xl">
-          <Toolbar className="flex justify-center space-x-6 py-2">
-            {menuItems.map((item, index) => (
-              <div key={index}>
-                {item.submenu ? (
-                  <>
+            <Container sx={{ display: "ruby" }}>
+              {menuItems.map((item, index) => (
+                <div key={index}>
+                  {item.submenu ? (
+                    <>
+                      <Button
+                        onClick={(e) =>
+                          handleMenuOpen(e, item.label.toLowerCase())
+                        }
+                        className="text-blue-700 hover:text-blue-900"
+                      >
+                        {item.label}
+                      </Button>
+                      <Menu
+                        anchorEl={
+                          item.label === "About"
+                            ? anchorElAbout
+                            : item.label === "Services"
+                            ? anchorElServices
+                            : anchorElGallery
+                        }
+                        open={Boolean(
+                          item.label === "About"
+                            ? anchorElAbout
+                            : item.label === "Services"
+                            ? anchorElServices
+                            : anchorElGallery
+                        )}
+                        onClose={handleMenuClose}
+                        className="bg-white mt-2"
+                      >
+                        {item.submenu.map((subItem, subIndex) => (
+                          <MenuItem
+                            key={subIndex}
+                            onClick={handleMenuClose}
+                            component={Link}
+                            to={subItem.to}
+                            className="text-gray-800 hover:bg-gray-100"
+                          >
+                            {subItem.label}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </>
+                  ) : (
                     <Button
-                      onClick={(e) =>
-                        handleMenuOpen(e, item.label.toLowerCase())
-                      }
+                      component={Link}
+                      to={item.to}
                       className="text-blue-700 hover:text-blue-900"
                     >
                       {item.label}
                     </Button>
-                    <Menu
-                      anchorEl={
-                        item.label === "About"
-                          ? anchorElAbout
-                          : item.label === "Services"
-                          ? anchorElServices
-                          : anchorElGallery
-                      }
-                      open={Boolean(
-                        item.label === "About"
-                          ? anchorElAbout
-                          : item.label === "Services"
-                          ? anchorElServices
-                          : anchorElGallery
-                      )}
-                      onClose={handleMenuClose}
-                      className="bg-white mt-2"
-                    >
-                      {item.submenu.map((subItem, subIndex) => (
-                        <MenuItem
-                          key={subIndex}
-                          onClick={handleMenuClose}
-                          component={Link}
-                          to={subItem.to}
-                          className="text-gray-800 hover:bg-gray-100"
-                        >
-                          {subItem.label}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </>
-                ) : (
-                  <Button
-                    component={Link}
-                    to={item.to}
-                    className="text-blue-700 hover:text-blue-900"
-                  >
-                    {item.label}
-                  </Button>
-                )}
-              </div>
-            ))}
-            <IconButton
-              className="lg:hidden text-gray-800 ml-auto"
-              onClick={toggleDrawer(true)}
-            >
-              <MenuIcon />
-            </IconButton>
+                  )}
+                </div>
+              ))}
+              <IconButton
+                className="lg:hidden text-gray-800 ml-auto"
+                onClick={toggleDrawer(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Container>
           </Toolbar>
         </Container>
       </AppBar>
