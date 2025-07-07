@@ -30,13 +30,13 @@ const Footer = () => {
       <Grid mt={5}>
         {/* <Container maxWidth="lg"> */}
         <Box mt={3}>
-          <Box mt={5}>
+          <Box mt={5} sx={{ textAlign: "center" }}>
             <img
               src={logo}
               alt="OM Astro Solution"
               className="h-12 mx-auto md:mx-0 mb-2"
             />
-            <Box>
+            <Box sx={{ textAlign: "center" }}>
               <IconButton
                 id="facebook-icon"
                 href="https://www.facebook.com/profile.php?id=100069020956273&mibextid=rS40aB7S9Ucbxw6v"
