@@ -64,7 +64,7 @@ const Services = () => {
     <div style={{ padding: "70px 0 50px", backgroundColor: "#f9f9f9" }}>
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
         <Typography variant="h4" component="h1">
-          our <span style={{ color: "#ff9800" }}>services</span>
+          Our <span style={{ color: "#ff9800" }}>Services</span>
         </Typography>
         <Typography variant="body1">
           Connect with our team to get remedies for your love life. We have pool
