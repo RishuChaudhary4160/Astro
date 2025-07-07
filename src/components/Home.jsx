@@ -31,6 +31,7 @@ const Home = () => {
           sx={{
             fontSize: "3rem",
             fontWeight: "bold",
+            textAlign: "center",
           }}
           className="header-why"
           mb={5}

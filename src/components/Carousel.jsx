@@ -29,7 +29,12 @@ const Carousel = () => {
   };
 
   return (
-    <div id="demo" className="carousel slide" data-bs-ride="carousel">
+    <div
+      id="demo"
+      className="carousel slide"
+      data-bs-ride="carousel"
+      style={{ textAlign: "center" }}
+    >
       <div className="carousel-indicators">
         {slides.map((_, index) => (
           <button
@@ -45,10 +50,16 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`carousel-item ${index === currentSlide ? "active" : ""
-              }`}
+            className={`carousel-item ${
+              index === currentSlide ? "active" : ""
+            }`}
           >
-            <img src={slide} alt={`Slide ${index + 1}`} className="d-block" style={{ width: "450px" }} />
+            <img
+              src={slide}
+              alt={`Slide ${index + 1}`}
+              className="d-block"
+              style={{ width: "450px" }}
+            />
           </div>
         ))}
       </div>
