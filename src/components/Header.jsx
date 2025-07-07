@@ -20,7 +20,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logo from "../assets/images/logo1.png";
+import logo from "../assets/images/omLogo.jpg";
 import Facebook from "../assets/images/animation/icons8-facebook.gif";
 import Instagram from "../assets/images/animation/icons8-instagram.gif";
 import Whatsapp from "../assets/images/animation/icons8-whatsapp.gif";
@@ -35,7 +35,25 @@ const Header = () => {
     if (menu === "services") setAnchorElServices(event.currentTarget);
     if (menu === "gallery") setAnchorElGallery(event.currentTarget);
   };
-
+  const logoStyle = {
+    width: "200px",
+    height: "150px", // Adjusted for better proportion, overriding h-8 (32px)
+    objectFit: "cover",
+    marginTop: "-100px",
+    marginLeft: "-100px",
+    backgroundSize: "cover",
+    borderRadius: "8px", // Slight rounding for a modern look
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+    animation: "float 3s ease-in-out infinite", // Floating animation
+    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth hover transition
+  };
+  const [isHovered, setIsHovered] = React.useState(false);
+  const hoverStyle = isHovered
+    ? {
+        transform: "scale(1.05)", // Slight zoom on hover
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)", // Enhanced shadow on hover
+      }
+    : {};
   const handleMenuClose = () => {
     setAnchorElAbout(null);
     setAnchorElServices(null);
@@ -215,7 +233,17 @@ const Header = () => {
         <Container maxWidth="xl">
           <Toolbar className="flex justify-between items-center py-2">
             <Box className="flex items-center space-x-2">
-              <img src={logo} alt="OM Astro Solution" className="h-8" />
+              <img
+                src={logo}
+                alt="OM Astro Solution"
+                style={{
+                  ...logoStyle,
+                  ...hoverStyle,
+                }}
+                className="h-8" // h-8 (32px) will be overridden by height in style
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              />
             </Box>
             <Container sx={{ display: "ruby" }}>
               {menuItems.map((item, index) => (
