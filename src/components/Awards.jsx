@@ -34,7 +34,7 @@ const Awards = () => {
             </div>
             <div className="col-lg-10 col-md-12 col-sm-12 col-12 offset-lg-1 offset-md-0 offset-sm-0 offset-0">
               <div className="ast_testimonials_slider ast_testimonials_slider1">
-                <div className="row">
+                {/* <div className="row">
                   {awards.map((award, index) => (
                     <div
                       key={index}
@@ -49,7 +49,7 @@ const Awards = () => {
                       </div>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

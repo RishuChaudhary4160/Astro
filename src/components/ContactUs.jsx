@@ -43,7 +43,7 @@ const Contact = () => {
                   <i className="fa fa-map-marker" aria-hidden="true"></i>
                 </span>
                 <h4>address</h4>
-                <p>Ahmedabad, Gujarat, India</p>
+                <p>House number 20 , Sector 11, Chandigarh</p>
               </div>
             </div>
           </div>

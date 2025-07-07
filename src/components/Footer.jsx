@@ -190,7 +190,7 @@ const Footer = () => {
             <List>
               <ListItem>
                 <Typography variant="body2">
-                  <span className="mr-2">🏠</span>Ahmedabad, Gujarat, India
+                  <span className="mr-2">🏠</span>House number 20 , Sector 11, Chandigarh
                 </Typography>
               </ListItem>
               <ListItem>
