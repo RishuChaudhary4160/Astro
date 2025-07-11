@@ -38,7 +38,7 @@ const About = () => {
           borderColor: "grey.200",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xxl">
           <Fade in timeout={1200}>
             <Box sx={{ textAlign: "center", mb: 6 }}>
               <Typography
@@ -325,7 +325,7 @@ const About = () => {
       </Box>
 
       {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+      <Container maxWidth="xxl" sx={{ py: { xs: 6, md: 8 } }}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Grow in timeout={900}>

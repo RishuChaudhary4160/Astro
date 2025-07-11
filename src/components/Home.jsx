@@ -199,7 +199,7 @@ const Home = () => {
       <ZodiacSigns />
       <Counter />
       <ServicesCardComponent />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Footer />
     </div>
   );
