@@ -95,9 +95,10 @@ const Counter = () => {
     <Box
       className="bg-teal-900 text-white py-8"
       style={{
-        backgroundImage: `url(${img5})`,
-        backgroundSize: "cover",
-        textAlign: "center",
+        // backgroundImage: `url(${img5})`,
+        // backgroundSize: "cover",
+        // textAlign: "center",
+        background: "none",
       }}
     >
       <Box className="container mx-auto text-center">

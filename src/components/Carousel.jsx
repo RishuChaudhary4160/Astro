@@ -5,7 +5,8 @@ import img3 from "../assets/images/banner6.jpeg";
 import img4 from "../assets/images/banner1.jpeg";
 import img5 from "../assets/images/banner7.jpeg";
 import img6 from "../assets/images/banner8.jpeg";
-
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -51,18 +52,25 @@ const Carousel = () => {
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: "1200px", // Adjustable container width
+        // maxWidth: "1200px", // Adjustable container width
         margin: "0 auto",
         overflow: "hidden",
         borderRadius: "12px", // Rounded corners for modern look
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", // Subtle shadow
         backgroundColor: "#f5f5f5", // Light background
         marginTop: "30px",
-        padding: '1rem'
+        padding: "1rem",
       }}
     >
       {/* Carousel Images */}
-      <div style={{ position: "relative", width: "100%", height: "400px", padding: '1rem' }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "400px",
+          padding: "1rem",
+        }}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -76,8 +84,8 @@ const Carousel = () => {
                 index === currentSlide
                   ? "translateX(0)"
                   : index > currentSlide
-                    ? "translateX(100%)"
-                    : "translateX(-100%)",
+                  ? "translateX(100%)"
+                  : "translateX(-100%)",
               transition: "transform 0.5s ease-in-out", // Slide animation
               opacity: index === currentSlide ? 1 : 0,
               zIndex: index === currentSlide ? 1 : 0,
@@ -148,12 +156,12 @@ const Carousel = () => {
               transform: index === currentSlide ? "scale(1.2)" : "scale(1)",
             }}
             onMouseOver={(e) =>
-            (e.currentTarget.style.transform =
-              index === currentSlide ? "scale(1.2)" : "scale(1.1)")
+              (e.currentTarget.style.transform =
+                index === currentSlide ? "scale(1.2)" : "scale(1.1)")
             }
             onMouseOut={(e) =>
-            (e.currentTarget.style.transform =
-              index === currentSlide ? "scale(1.2)" : "scale(1)")
+              (e.currentTarget.style.transform =
+                index === currentSlide ? "scale(1.2)" : "scale(1)")
             }
             aria-label={`Slide ${index + 1}`}
           ></button>
@@ -189,7 +197,7 @@ const Carousel = () => {
         }}
         aria-label="Previous Slide"
       >
-        &lt;
+        <ArrowBackIosIcon />
       </button>
       <button
         type="button"
@@ -219,7 +227,7 @@ const Carousel = () => {
         }}
         aria-label="Next Slide"
       >
-        &gt;
+        <ArrowForwardIosIcon />
       </button>
     </div>
   );
