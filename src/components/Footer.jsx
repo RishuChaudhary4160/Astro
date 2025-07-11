@@ -44,7 +44,7 @@ const Footer = () => {
     : {};
   return (
     <Box
-      mt={3}
+      mt={1}
       className="bg-teal-900 text-white py-8"
       sx={{
         backgroundColor: "#536e81",
