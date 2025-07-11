@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback, useMemo } from "react";
 import {
   AppBar,
   Toolbar,
@@ -34,6 +34,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",
   padding: theme.spacing(2, 0),
+  minHeight: 64,
 }));
 
 const BrandTypography = styled(Typography)(({ theme }) => ({
@@ -47,14 +48,14 @@ const BrandTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
-  color: "#374151",
+  color: "#fff",
   fontWeight: 500,
   fontSize: "0.875rem",
   textTransform: "none",
   padding: "8px 16px",
   minWidth: "auto",
   "&:hover": {
-    color: "#111827",
+    color: "#fff",
     backgroundColor: "transparent",
   },
 }));
@@ -70,7 +71,7 @@ const IconButtonStyled = styled(IconButton)(({ theme }) => ({
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
   "& .MuiDrawer-paper": {
-    width: 320,
+    width: 280,
     backgroundColor: "#ffffff",
   },
 }));
@@ -79,7 +80,7 @@ const DrawerHeader = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: theme.spacing(2),
+  padding: theme.spacing(1.5),
   borderBottom: "1px solid #e5e7eb",
 }));
 
@@ -101,152 +102,169 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
 const StyledMenu = styled(Menu)(({ theme }) => ({
   "& .MuiPaper-root": {
     marginTop: theme.spacing(1),
-    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     border: "1px solid #e5e7eb",
     borderRadius: theme.spacing(1),
   },
 }));
 
-const Header = () => {
+const menuItems = [
+  { label: "Home", to: "/" },
+  {
+    label: "About",
+    submenu: [{ label: "About Us", to: "/aboutus" }],
+  },
+  {
+    label: "Services",
+    submenu: [
+      { label: "Love Problem Solution", to: "/love-problem-solution" },
+      { label: "Marriage Problem Solution", to: "/marriage-problem-solution" },
+      {
+        label: "Love Marriage Problem Solution",
+        to: "/love-marriage-problem-solution",
+      },
+      { label: "Family Problem Solution", to: "/family-problem-solution" },
+      {
+        label: "Husband Wife Dispute Solution",
+        to: "/husband-wife-dispute-solution",
+      },
+      { label: "Horoscope Reading", to: "/horoscope-reading" },
+    ],
+  },
+  {
+    label: "Gallery",
+    submenu: [
+      { label: "Photo Gallery", to: "/photo-gallery" },
+      { label: "Video Gallery", to: "/video-gallery" },
+    ],
+  },
+  { label: "Inquiry", to: "/inquiry" },
+  { label: "Contact Us", to: "/contactus" },
+];
+
+const Header = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [anchorElAbout, setAnchorElAbout] = useState(null);
-  const [anchorElServices, setAnchorElServices] = useState(null);
-  const [anchorElGallery, setAnchorElGallery] = useState(null);
+  const [anchorEl, setAnchorEl] = useState({
+    about: null,
+    services: null,
+    gallery: null,
+  });
   const [openSubmenu, setOpenSubmenu] = useState(null);
-  const [cartCount, setCartCount] = useState(0);
   const closeTimeoutRef = useRef(null);
 
-  const menuItems = [
-    { label: "Home", to: "/" },
-    {
-      label: "About",
-      submenu: [
-        { label: "About Us", to: "/aboutus" },
-        // { label: "Awards", to: "/awards" },
-        // { label: "Certificate", to: "/certificate" },
-      ],
-    },
-    {
-      label: "Services",
-      submenu: [
-        { label: "Love Problem Solution", to: "/love-problem-solution" },
-        {
-          label: "Marriage Problem Solution",
-          to: "/marriage-problem-solution",
-        },
-        {
-          label: "Love Marriage Problem Solution",
-          to: "/love-marriage-problem-solution",
-        },
-        { label: "Family Problem Solution", to: "/family-problem-solution" },
-        {
-          label: "Husband Wife Dispute Solution",
-          to: "/husband-wife-dispute-solution",
-        },
-        { label: "Horoscope Reading", to: "/horoscope-reading" },
-      ],
-    },
-    {
-      label: "Gallery",
-      submenu: [
-        { label: "Photo Gallery", to: "/photo-gallery" },
-        { label: "Video Gallery", to: "/video-gallery" },
-      ],
-    },
-    { label: "Inquiry", to: "/inquiry" },
-    { label: "Contact Us", to: "/contactus" },
-  ];
-
-  const handleMenuOpen = (event, menu) => {
+  const handleMenuOpen = useCallback((event, menu) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
     }
-    if (menu === "about") setAnchorElAbout(event.currentTarget);
-    if (menu === "services") setAnchorElServices(event.currentTarget);
-    if (menu === "gallery") setAnchorElGallery(event.currentTarget);
-  };
+    setAnchorEl((prev) => ({ ...prev, [menu]: event.currentTarget }));
+  }, []);
 
-  const handleMenuClose = () => {
+  const handleMenuClose = useCallback(() => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
     }
     closeTimeoutRef.current = setTimeout(() => {
-      setAnchorElAbout(null);
-      setAnchorElServices(null);
-      setAnchorElGallery(null);
-    }, 100);
-  };
+      setAnchorEl({ about: null, services: null, gallery: null });
+    }, 50);
+  }, []);
 
-  const toggleDrawer = (open) => () => {
-    setIsMenuOpen(open);
-  };
+  const toggleDrawer = useCallback(
+    (open) => () => {
+      setIsMenuOpen(open);
+    },
+    []
+  );
 
-  const toggleSubmenu = (label) => {
-    setOpenSubmenu(openSubmenu === label ? null : label);
-  };
+  const toggleSubmenu = useCallback((label) => {
+    setOpenSubmenu((prev) => (prev === label ? null : label));
+  }, []);
 
-  const getAnchorEl = (label) => {
-    switch (label) {
-      case "About":
-        return anchorElAbout;
-      case "Services":
-        return anchorElServices;
-      case "Gallery":
-        return anchorElGallery;
-      default:
-        return null;
-    }
-  };
+  const getAnchorEl = useCallback(
+    (label) => anchorEl[label.toLowerCase()],
+    [anchorEl]
+  );
 
   const logoStyle = {
-    width: "100px",
-    height: "100px",
+    width: "80px",
+    height: "80px",
     objectFit: "cover",
-    backgroundSize: "cover",
     borderRadius: "8px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    animation: "float 3s ease-in-out infinite",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+      boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+    },
   };
 
-  const [isHovered, setIsHovered] = React.useState(false);
-  const hoverStyle = isHovered
-    ? {
-        transform: "scale(1.05)",
-        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-      }
-    : {};
-
-  const drawerList = (
-    <Box>
-      <DrawerHeader>
-        <Box className="flex items-center space-x-2">
-          <img
-            src={logo}
-            alt="OM Astro Solution"
-            style={{
-              ...logoStyle,
-              ...hoverStyle,
-            }}
-            className="h-8"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          />
-        </Box>
-        <IconButton onClick={toggleDrawer(false)}>
-          <CloseIcon />
-        </IconButton>
-      </DrawerHeader>
-      <Box sx={{ padding: 2 }}>
-        <List>
-          {menuItems.map((item, index) => (
-            <Box key={index}>
-              {item.submenu ? (
-                <>
+  const drawerList = useMemo(
+    () => (
+      <Box>
+        <DrawerHeader>
+          <Box className="flex items-center space-x-2">
+            <img
+              src={logo}
+              alt="OM Astro Solution"
+              style={logoStyle}
+              className="h-8"
+              loading="lazy"
+            />
+          </Box>
+          <IconButton onClick={toggleDrawer(false)}>
+            <CloseIcon />
+          </IconButton>
+        </DrawerHeader>
+        <Box sx={{ padding: 1.5 }}>
+          <List>
+            {menuItems.map((item, index) => (
+              <Box key={index}>
+                {item.submenu ? (
+                  <>
+                    <StyledListItem
+                      button
+                      onClick={() => toggleSubmenu(item.label)}
+                      sx={{ display: "flex", justifyContent: "space-between" }}
+                    >
+                      <ListItemText
+                        primary={item.label}
+                        primaryTypographyProps={{
+                          fontWeight: 500,
+                          fontSize: "0.875rem",
+                        }}
+                      />
+                      {openSubmenu === item.label ? (
+                        <ExpandLessIcon />
+                      ) : (
+                        <ExpandMoreIcon />
+                      )}
+                    </StyledListItem>
+                    {openSubmenu === item.label && (
+                      <Box sx={{ paddingLeft: 2 }}>
+                        {item.submenu.map((subItem, subIndex) => (
+                          <StyledListItem
+                            key={subIndex}
+                            button
+                            component="a"
+                            href={subItem.to}
+                            onClick={toggleDrawer(false)}
+                          >
+                            <ListItemText
+                              primary={subItem.label}
+                              primaryTypographyProps={{
+                                fontSize: "0.8125rem",
+                                color: "#6b7280",
+                              }}
+                            />
+                          </StyledListItem>
+                        ))}
+                      </Box>
+                    )}
+                  </>
+                ) : (
                   <StyledListItem
                     button
-                    onClick={() => toggleSubmenu(item.label)}
-                    sx={{ display: "flex", justifyContent: "space-between" }}
+                    component="a"
+                    href={item.to}
+                    onClick={toggleDrawer(false)}
                   >
                     <ListItemText
                       primary={item.label}
@@ -255,55 +273,15 @@ const Header = () => {
                         fontSize: "0.875rem",
                       }}
                     />
-                    {openSubmenu === item.label ? (
-                      <ExpandLessIcon />
-                    ) : (
-                      <ExpandMoreIcon />
-                    )}
                   </StyledListItem>
-                  {openSubmenu === item.label && (
-                    <Box sx={{ paddingLeft: 2 }}>
-                      {item.submenu.map((subItem, subIndex) => (
-                        <StyledListItem
-                          key={subIndex}
-                          button
-                          component="a"
-                          href={subItem.to}
-                          onClick={toggleDrawer(false)}
-                        >
-                          <ListItemText
-                            primary={subItem.label}
-                            primaryTypographyProps={{
-                              fontSize: "0.8125rem",
-                              color: "#6b7280",
-                            }}
-                          />
-                        </StyledListItem>
-                      ))}
-                    </Box>
-                  )}
-                </>
-              ) : (
-                <StyledListItem
-                  button
-                  component="a"
-                  href={item.to}
-                  onClick={toggleDrawer(false)}
-                >
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{
-                      fontWeight: 500,
-                      fontSize: "0.875rem",
-                    }}
-                  />
-                </StyledListItem>
-              )}
-            </Box>
-          ))}
-        </List>
+                )}
+              </Box>
+            ))}
+          </List>
+        </Box>
       </Box>
-    </Box>
+    ),
+    [openSubmenu, toggleDrawer, toggleSubmenu]
   );
 
   return (
@@ -315,13 +293,9 @@ const Header = () => {
             <img
               src={logo}
               alt="OM Astro Solution"
-              style={{
-                ...logoStyle,
-                ...hoverStyle,
-              }}
+              style={logoStyle}
               className="h-8"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              loading="lazy" // Lazy load image
             />
           </Box>
 
@@ -330,7 +304,7 @@ const Header = () => {
             sx={{
               display: { xs: "none", lg: "flex" },
               alignItems: "center",
-              gap: 4,
+              gap: 3,
             }}
           >
             {menuItems.map((item, index) => (
@@ -338,10 +312,10 @@ const Header = () => {
                 {item.submenu ? (
                   <>
                     <NavButton
-                      onClick={(e) =>
+                      onMouseEnter={(e) =>
                         handleMenuOpen(e, item.label.toLowerCase())
                       }
-                      onMouseEnter={(e) =>
+                      onClick={(e) =>
                         handleMenuOpen(e, item.label.toLowerCase())
                       }
                       onMouseLeave={handleMenuClose}
@@ -353,11 +327,7 @@ const Header = () => {
                       anchorEl={getAnchorEl(item.label)}
                       open={Boolean(getAnchorEl(item.label))}
                       onClose={handleMenuClose}
-                      onMouseEnter={() => {
-                        if (closeTimeoutRef.current) {
-                          clearTimeout(closeTimeoutRef.current);
-                        }
-                      }}
+                      onMouseEnter={() => clearTimeout(closeTimeoutRef.current)}
                       onMouseLeave={handleMenuClose}
                     >
                       {item.submenu.map((subItem, subIndex) => (
@@ -382,20 +352,15 @@ const Header = () => {
           </Box>
 
           {/* Right Icons */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            {/* Search Icon */}
-            <IconButtonStyled aria-label="search">
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButtonStyled aria-label="search" sx={{ color: "#fff" }}>
               <SearchIcon fontSize="small" />
             </IconButtonStyled>
-
-            {/* User Icon */}
-            <IconButtonStyled aria-label="account">
+            <IconButtonStyled aria-label="account" sx={{ color: "#fff" }}>
               <PersonIcon fontSize="small" />
             </IconButtonStyled>
-
-            {/* Mobile Menu Button */}
             <IconButtonStyled
-              sx={{ display: { lg: "none" }, marginLeft: 1 }}
+              sx={{ display: { lg: "none" }, marginLeft: 0.5 }}
               onClick={toggleDrawer(true)}
               aria-label="menu"
             >
@@ -415,6 +380,6 @@ const Header = () => {
       </StyledDrawer>
     </StyledAppBar>
   );
-};
+});
 
 export default Header;

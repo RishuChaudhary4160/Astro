@@ -54,7 +54,7 @@ const ZodiacDetail = () => {
           <Button
             variant="contained"
             onClick={() => navigate("/")}
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, backgroundColor: "#f28c38" }}
           >
             Back to Zodiac Signs
           </Button>

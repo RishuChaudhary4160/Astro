@@ -26,6 +26,10 @@ const Home = () => {
       <Carousel />
 
       <WelcomeAstro />
+
+      <Services />
+      {/* <Awards /> */}
+      <ZodiacSigns />
       <Grid mt={2} mb={3} p={2} sx={{ backgroundColor: "#ededed" }}>
         <Typography
           sx={{
@@ -193,10 +197,6 @@ const Home = () => {
           </Grid>
         </Grid>
       </Grid>
-
-      <Services />
-      {/* <Awards /> */}
-      <ZodiacSigns />
       <Counter />
       <ServicesCardComponent />
       {/* <Testimonials /> */}
