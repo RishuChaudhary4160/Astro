@@ -37,7 +37,7 @@ const HusbandWifeDispute = () => {
           borderColor: "grey.200",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xxl">
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} md={6}>
               <Fade in timeout={1200}>
@@ -119,7 +119,7 @@ const HusbandWifeDispute = () => {
       </Box>
 
       {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+      <Container maxWidth="xxl" sx={{ py: { xs: 6, md: 8 } }}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Grow in timeout={800}>

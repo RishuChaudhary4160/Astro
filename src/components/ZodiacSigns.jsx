@@ -7,7 +7,9 @@ import {
   CardMedia,
   Grid,
   Typography,
+  Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import aries from "../assets/images/animation/Aries.mp4";
 import Taurus from "../assets/images/animation/Taurus.mp4";
 import Gemini from "../assets/images/animation/Gemini.mp4";
@@ -20,7 +22,6 @@ import Capricorn from "../assets/images/animation/Capricorn.mp4";
 import Pisces from "../assets/images/animation/Pisces.mp4";
 import Scorpio from "../assets/images/animation/Scorpio.mp4";
 import Sagittarius from "../assets/images/animation/Sagittarius.mp4";
-import { Pages } from "@mui/icons-material";
 
 const ZodiacSigns = () => {
   const zodiacSigns = [
@@ -28,67 +29,117 @@ const ZodiacSigns = () => {
       name: "Aries",
       hindi: "मेष",
       animation: aries,
+      prediction:
+        "Today is a great day for new beginnings, Aries. Your energy is high, so seize opportunities in your career or personal projects.",
     },
     {
       name: "Taurus",
       hindi: "वृषभ",
       animation: Taurus,
+      prediction:
+        "Stability is your strength today, Taurus. Focus on financial planning and nurturing close relationships.",
     },
     {
       name: "Gemini",
       hindi: "मिथुन",
       animation: Gemini,
+      prediction:
+        "Your curiosity drives you today, Gemini. Engage in meaningful conversations and explore new ideas.",
     },
     {
       name: "Cancer",
       hindi: "कर्क",
       animation: Cancer,
+      prediction:
+        "Emotions run deep today, Cancer. Take time for self-care and connect with loved ones.",
     },
     {
       name: "Leo",
       hindi: "सिंह",
       animation: Leo,
+      prediction:
+        "Shine bright, Leo! Your confidence will attract positive attention in social or professional settings.",
     },
     {
       name: "Virgo",
       hindi: "कन्या",
       animation: Virgo,
+      prediction:
+        "Attention to detail pays off today, Virgo. Tackle tasks with precision and avoid overthinking.",
     },
-    { name: "Libra", hindi: "तुला", animation: Libra },
+    {
+      name: "Libra",
+      hindi: "तुला",
+      animation: Libra,
+      prediction:
+        "Balance is key today, Libra. Seek harmony in relationships and make time for creative pursuits.",
+    },
     {
       name: "Scorpio",
       hindi: "वृश्चिक",
       animation: Scorpio,
+      prediction:
+        "Your intuition is sharp today, Scorpio. Trust your instincts in decision-making.",
     },
     {
       name: "Sagittarius",
       hindi: "धनु",
       animation: Sagittarius,
+      prediction:
+        "Adventure calls you, Sagittarius. Embrace new experiences and broaden your horizons.",
     },
     {
       name: "Capricorn",
       hindi: "मकर",
       animation: Capricorn,
+      prediction:
+        "Hard work pays off today, Capricorn. Stay disciplined and focus on your long-term goals.",
     },
     {
       name: "Aquarius",
       hindi: "कुम्भ",
       animation: Aquarius,
+      prediction:
+        "Innovation is your strength today, Aquarius. Collaborate and share your unique ideas.",
     },
     {
       name: "Pisces",
       hindi: "मीन",
       animation: Pisces,
+      prediction:
+        "Your creativity flows today, Pisces. Dive into artistic projects or spiritual reflection.",
     },
   ];
 
   return (
-    <>
-      <Grid>
-        <Grid sx={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',}} mt={5} mb={5} ml={1}>
-          {zodiacSigns.map((item, index) => (
-            <Grid item xs={6} key={index} sx={{width:'18rem',height:'17rem'}}>
-              <Card sx={{width:'15rem',height:'14rem',alignItems:"center"}}>
+    <Grid container spacing={2} sx={{ mt: 5, mb: 5, ml: 1 }}>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        {zodiacSigns.map((item, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={index}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            {" "}
+            <Button
+              component={Link}
+              to={`/zodiac/${item.name.toLowerCase()}`}
+              state={{ zodiac: item }}
+              size="small"
+            >
+              <Card
+                sx={{ width: "15rem", height: "16rem", textAlign: "center" }}
+              >
                 <CardMedia
                   component="video"
                   src={item.animation}
@@ -96,7 +147,7 @@ const ZodiacSigns = () => {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%",height:'60%' }}
+                  sx={{ width: "100%", height: "60%", objectFit: "cover" }}
                 />
                 <CardContent>
                   <Typography variant="h6">{item.name}</Typography>
@@ -105,11 +156,11 @@ const ZodiacSigns = () => {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
-          ))}
-        </Grid>
+            </Button>
+          </Grid>
+        ))}
       </Grid>
-    </>
+    </Grid>
   );
 };
 
