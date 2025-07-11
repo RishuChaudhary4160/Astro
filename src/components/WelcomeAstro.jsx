@@ -100,7 +100,7 @@ const WelcomeAstro = () => {
                     }}
                   >
                     <Typography variant="h6" component="div">
-                      Call Now <br /> +91 95106 13566
+                      Call Now <br /> +91 9417339708
                     </Typography>
                   </Box>
                 </CardContent>

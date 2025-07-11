@@ -122,8 +122,8 @@ const Header = () => {
       label: "About",
       submenu: [
         { label: "About Us", to: "/aboutus" },
-        { label: "Awards", to: "/awards" },
-        { label: "Certificate", to: "/certificate" },
+        // { label: "Awards", to: "/awards" },
+        // { label: "Certificate", to: "/certificate" },
       ],
     },
     {

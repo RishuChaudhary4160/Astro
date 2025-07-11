@@ -13,11 +13,11 @@ import num2 from "../assets/images/10.1.png";
 import num3 from "../assets/images/11.1.png";
 import num4 from "../assets/images/12.1.png";
 import num5 from "../assets/images/13.1.png";
-import loveMarriage from '../assets/images/ghibli/loveMarriage.jpeg';
-import Marriage from '../assets/images/ghibli/Marriage.jpeg';
-import Marital_Issues from '../assets/images/ghibli/Marital_Issues.png';
-import Delay_In_Marriage from '../assets/images/ghibli/Delay_In_Marriage.png';
-import divorce from '../assets/images/ghibli/divorce.jpg'
+import loveMarriage from "../assets/images/ghibli/loveMarriage.jpeg";
+import Marriage from "../assets/images/ghibli/Marriage.jpeg";
+import Marital_Issues from "../assets/images/ghibli/Marital_Issues.png";
+import Delay_In_Marriage from "../assets/images/ghibli/Delay_In_Marriage.png";
+import divorce from "../assets/images/ghibli/divorce.jpg";
 
 const services = [
   {
@@ -25,7 +25,7 @@ const services = [
     description:
       "Looking for guidance in your life? Consult a World Famous Astrologer for expert advice. These astrologers are renowned worldwide for their accurate predictions and insights. Get answers to your questions about love, career, and more today.",
     image: num0,
-    whatsappLink: "https://api.whatsapp.com/send?phone=919510613656&text=I",
+    whatsappLink: "https://api.whatsapp.com/send?phone=919417339708&text=I",
   },
   {
     title: "Love Marriage Specialist",
@@ -38,28 +38,28 @@ const services = [
     description:
       "Intercast Love Marriage is when people from different castes choose love over social norms. It's a journey filled with emotions and trials. This article will provide insights into the world of Intercast Love Marriage and how to make it work.",
     image: Marriage,
-    whatsappLink: "https://api.whatsapp.com/send?phone=919510613656&text=I",
+    whatsappLink: "https://api.whatsapp.com/send?phone=919417339708&text=I",
   },
   {
     title: "Marital Issues And Solutions",
     description:
       "Marital issues can be tough, but there are simple solutions. Communication is key. Make time to talk and listen to each other. Be open about your feelings and concerns. Remember, it's okay to ask for help from a trusted friend or counselor.",
     image: Marital_Issues,
-    whatsappLink: "https://api.whatsapp.com/send?phone=919510613656&text=I",
+    whatsappLink: "https://api.whatsapp.com/send?phone=919417339708&text=I",
   },
   {
     title: "Delay In Marriage",
     description:
       "A delayed marriage isn't unusual. There are myriad reasons, like career focus, self-improvement, or waiting for the right match. It's your individual journey. This article simplifies why marriages may take time, providing comfort and a roadmap to a more enriching union.",
     image: Delay_In_Marriage,
-    whatsappLink: "https://api.whatsapp.com/send?phone=919510613656&text=I",
+    whatsappLink: "https://api.whatsapp.com/send?phone=919417339708&text=I",
   },
   {
     title: "Divorce Problem Solution",
     description:
       "Dealing with divorce problems can be hard, but there are ways to resolve them. Talk openly with your partner and consider marriage counseling. Sometimes, simple changes in communication can make a big difference. If the situation doesn't improve, consult a divorce attorney for guidance.",
     image: divorce,
-    whatsappLink: "https://api.whatsapp.com/send?phone=919510613656&text=I",
+    whatsappLink: "https://api.whatsapp.com/send?phone=919417339708&text=I",
   },
 ];
 
@@ -85,13 +85,13 @@ const ServicesCardComponent = () => {
       >
         {services.map((service, index) => (
           <Card key={index} style={{ width: "500px", textAlign: "center" }}>
-            
-            <img src={service.image}
-            style={{
-              height:'24rem',
-              width:'100%'
-            }}
-             />
+            <img
+              src={service.image}
+              style={{
+                height: "24rem",
+                width: "100%",
+              }}
+            />
             <CardContent>
               <Typography variant="h6" component="div">
                 {service.title}
