@@ -9,7 +9,7 @@ const FloatingButtons = () => {
       <ul className="end">
         <li className="phone ph-fx">
           <a
-            href="tel:+919510613656"
+            href="tel:+919417339708"
             target="_blank"
             rel="noopener noreferrer"
             data-attr="phone"
@@ -21,7 +21,7 @@ const FloatingButtons = () => {
         </li>
         <li className="what1 wh-fx">
           <a
-            href="https://api.whatsapp.com/send?phone=919510613656&text=I'd like to know more about your astrology services. Please contact me"
+            href="https://api.whatsapp.com/send?phone=919417339708&text=I'd like to know more about your astrology services. Please contact me"
             target="_blank"
             rel="noopener noreferrer"
             data-attr="whatsapp_contact"

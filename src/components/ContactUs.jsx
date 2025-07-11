@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Breadcrumb from '../components/Breadcrumb';
+import React, { useEffect, useState } from "react";
+import Breadcrumb from "../components/Breadcrumb";
 import ContactIcon from "../assets/images/animation/icons8-contact-us.gif";
 import mailIcon from "../assets/images/animation/mail.gif";
 import addressIcon from "../assets/images/animation/map.gif";
-import { Avatar } from '@mui/material';
-
+import { Avatar } from "@mui/material";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [formStatus, setFormStatus] = useState(null);
 
   useEffect(() => {
-    document.title = 'Contact Us | OM Astro Solution';
+    document.title = "Contact Us | OM Astro Solution";
   }, []);
 
   const handleInputChange = (e) => {
@@ -26,12 +25,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      setFormStatus('Please fill out all fields.');
+      setFormStatus("Please fill out all fields.");
       return;
     }
     // Simulate form submission (replace with API call if needed)
-    setFormStatus('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
+    setFormStatus("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setFormStatus(null), 3000);
   };
 
@@ -48,21 +47,17 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
-                <i className="fas fa-phone-alt text-blue-500 text-xl">
-
-                  <Avatar>
-                    <img
-                      src={ContactIcon}
-                      alt="phone icon"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </Avatar>
-
-                </i>
+                <Avatar>
+                  <img
+                    src={ContactIcon}
+                    alt="phone icon"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Avatar>
               </div>
               <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
               <p className="mt-2 text-gray-600">
@@ -76,19 +71,17 @@ const Contact = () => {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
-                <i className="fas fa-envelope text-blue-500 text-xl">
-                  <Avatar>
-                    <img
-                      src={mailIcon}
-                      alt="mail icon"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </Avatar>
-                </i>
+                <Avatar>
+                  <img
+                    src={mailIcon}
+                    alt="mail icon"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Avatar>
               </div>
               <h3 className="text-xl font-semibold text-gray-800">Email</h3>
               <p className="mt-2 text-gray-600">
@@ -102,22 +95,22 @@ const Contact = () => {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
-                <i className="fas fa-map-marker-alt text-blue-500 text-xl">
-                  <Avatar>
-                    <img
-                      src={addressIcon}
-                      alt="mail icon"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </Avatar>
-                </i>
+                <Avatar>
+                  <img
+                    src={addressIcon}
+                    alt="mail icon"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Avatar>
               </div>
               <h3 className="text-xl font-semibold text-gray-800">Address</h3>
-              <p className="mt-2 text-gray-600">House number 20, Sector 11, Chandigarh</p>
+              <p className="mt-2 text-gray-600">
+                House number 20, Sector 11, Chandigarh
+              </p>
             </div>
           </div>
         </div>
@@ -135,7 +128,10 @@ const Contact = () => {
                 </h3>
                 <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Name
                     </label>
                     <input
@@ -149,7 +145,10 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Email
                     </label>
                     <input
@@ -163,7 +162,10 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Message
                     </label>
                     <textarea
@@ -178,6 +180,7 @@ const Contact = () => {
                   </div>
                   <button
                     type="button"
+                    style={{ backgroundColor: "#ff9800" }}
                     onClick={handleSubmit}
                     className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
                   >
@@ -185,8 +188,11 @@ const Contact = () => {
                   </button>
                   {formStatus && (
                     <p
-                      className={`text-center text-sm transition-opacity duration-300 ${formStatus.includes('successfully') ? 'text-green-600' : 'text-red-600'
-                        }`}
+                      className={`text-center text-sm transition-opacity duration-300 ${
+                        formStatus.includes("successfully")
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
                     >
                       {formStatus}
                     </p>
@@ -205,7 +211,7 @@ const Contact = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.164614139768!2d76.78373231508254!3d30.742157981627885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0a9f3b3b7b%3A0x4c3b3b7b3b7b3b7b!2sSector%2011%2C%20Chandigarh%2C%20160011%2C%20India!5e0!3m2!1sen!2sin!4v1696613223074!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: '400px' }}
+                  style={{ border: 0, minHeight: "400px" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

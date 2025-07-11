@@ -113,7 +113,7 @@ const Footer = () => {
                   </Avatar>
                 </IconButton>
                 <IconButton
-                  href="https://api.whatsapp.com/send?phone=919510613656&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
+                  href="https://api.whatsapp.com/send?phone=919417339708&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-yellow-300"
@@ -131,7 +131,7 @@ const Footer = () => {
                   </Avatar>
                 </IconButton>
                 <IconButton
-                  href="tel:+919510613656"
+                  href="tel:+919417339708"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-yellow-300"
@@ -289,7 +289,7 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500 mb-2">
                 Get In Touch
               </Typography>
-              <List sx={{ textDecoration: "none", color: "#ff9800" }}>
+              <List sx={{ textDecoration: "none" }}>
                 <ListItem>
                   <Typography variant="body2">
                     <span className="mr-2">🏠</span>House Number 20 Sector 11
