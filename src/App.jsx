@@ -16,16 +16,22 @@ import PhotoGallery from "./components/PhotoGallery";
 import VideoGallery from "./components/VideoGallery";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Inquiry from "./components/Inquiry";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import ZodiacSigns from "./components/ZodiacSigns";
+import ZodiacDetail from "./components/ZodiacDetail";
 // import background from "./assets/images/timer_bg.webp"
 
 function App() {
   return (
     <Router>
-      <div className="App" style={{
-        // backgroundImage: `url(${background})`,
-        //         backgroundSize: "cover",  
-      }}>
+      <div
+        className="App"
+        style={
+          {
+            // backgroundImage: `url(${background})`,
+            //         backgroundSize: "cover",
+          }
+        }
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
@@ -57,6 +63,8 @@ function App() {
           <Route path="/video-gallery" element={<VideoGallery />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/inquiry" element={<Inquiry />} />
+          <Route path="/zodiac" element={<ZodiacSigns />} />
+          <Route path="/zodiac/:sign" element={<ZodiacDetail />} />
         </Routes>
       </div>
     </Router>

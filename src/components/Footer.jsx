@@ -38,9 +38,9 @@ const Footer = () => {
   const [isHovered, setIsHovered] = React.useState(false);
   const hoverStyle = isHovered
     ? {
-      transform: "scale(1.05)",
-      boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-    }
+        transform: "scale(1.05)",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+      }
     : {};
   return (
     <Box
@@ -60,13 +60,12 @@ const Footer = () => {
           <Grid
             mt={5}
             sx={{
-              display: 'flex',
-              justifyContent: 'center'
+              display: "flex",
+              justifyContent: "center",
             }}
           >
             <Grid>
-              <Grid sx={{ textAlignLast: 'center' }}>
-
+              <Grid sx={{ textAlignLast: "center" }}>
                 <img
                   src={logo}
                   alt="OM Astro Solution"
@@ -114,7 +113,7 @@ const Footer = () => {
                   </Avatar>
                 </IconButton>
                 <IconButton
-                  href="https://api.whatsapp.com/send?phone=919510613656&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
+                  href="https://api.whatsapp.com/send?phone=919417339708&text=I'd%20like%20to%20know%20more%20about%20your%20services.%20Please%20contact%20me"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-yellow-300"
@@ -132,7 +131,7 @@ const Footer = () => {
                   </Avatar>
                 </IconButton>
                 <IconButton
-                  href="tel:+919510613656"
+                  href="tel:+919417339708"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-yellow-300"
@@ -160,7 +159,7 @@ const Footer = () => {
                 <Typography variant="h6" className="text-orange-500 mb-2">
                   About OM Astro Solution
                 </Typography>
-                <Typography variant="body2" sx={{ textAlign: "center" }}>
+                <Typography variant="body2">
                   OM Astro Solution a top astrologer in India, with over a
                   decade of experience. He specializes in Vedic astrology and
                   offers solutions for things like love problem solution, love
@@ -183,7 +182,7 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500 mb-2">
                 Quick Links
               </Typography>
-              <List sx={{ textDecoration: "underline" }}>
+              <List sx={{ textDecoration: "none", color: "#ff9800" }}>
                 <ListItem>
                   <Link to="/" className="text-white hover:text-yellow-300">
                     Home
@@ -223,7 +222,7 @@ const Footer = () => {
                 </ListItem>
                 <ListItem>
                   <Link
-                    to="/contact"
+                    to="/contactus"
                     className="text-white hover:text-yellow-300"
                   >
                     Contact Us
@@ -235,7 +234,7 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500">
                 Our Services
               </Typography>
-              <List sx={{ textDecoration: "underline" }}>
+              <List sx={{ textDecoration: "none", color: "#ff9800" }}>
                 <ListItem>
                   <Link
                     to="/love-problem-solution"
@@ -290,10 +289,11 @@ const Footer = () => {
               <Typography variant="h6" className="text-orange-500 mb-2">
                 Get In Touch
               </Typography>
-              <List sx={{ textDecoration: "underline" }}>
+              <List sx={{ textDecoration: "none" }}>
                 <ListItem>
                   <Typography variant="body2">
-                    <span className="mr-2">🏠</span>House Number 20 Sector 11 Chandigarh
+                    <span className="mr-2">🏠</span>House Number 20 Sector 11
+                    Chandigarh
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -350,24 +350,6 @@ const Footer = () => {
           </a>
         </Typography>
         {/* </Container> */}
-
-        {/* Fixed Call & WhatsApp Buttons */}
-        <Box className="fixed bottom-4 left-4 flex space-x-2 z-50">
-          <IconButton
-            href="tel:+919510613656"
-            className="bg-red-500 text-white hover:bg-red-600"
-          >
-            <PhoneIcon />
-          </IconButton>
-          <IconButton
-            href="https://api.whatsapp.com/send?phone=919510613656&text=I'd like to know more about your astrology services. Please contact me"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 text-white hover:bg-green-600"
-          >
-            <WhatsAppIcon />
-          </IconButton>
-        </Box>
       </Grid>
     </Box>
   );

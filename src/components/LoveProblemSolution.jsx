@@ -37,7 +37,7 @@ const LoveProblemSolution = () => {
           borderColor: "grey.200",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xxl">
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} md={6}>
               <Fade in timeout={1200}>
@@ -96,7 +96,7 @@ const LoveProblemSolution = () => {
       </Box>
 
       {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+      <Container maxWidth="xxl" sx={{ py: { xs: 6, md: 8 } }}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Grow in timeout={800}>
@@ -311,7 +311,8 @@ const LoveProblemSolution = () => {
                     and lows. How a couple deals with these challenges
                     determines the fate of their love. Some couples manage to
                     overcome these love problems, while others struggle to do
-                    so.
+                    so. When you're facing love problems, you can reach out to
+                    Om
                   </Typography>
                   <Typography
                     variant="body2"
@@ -319,7 +320,6 @@ const LoveProblemSolution = () => {
                     sx={{ lineHeight: 1.8 }}
                     paragraph
                   >
-                    When you're facing love problems, you can reach out to Om
                     Astro Service for guidance. Their love problem solution
                     specialist astrologer can quickly help you resolve your love
                     issues, so you can move past them swiftly.
