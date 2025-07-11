@@ -24,10 +24,12 @@ const Home = () => {
     <div>
       <Header />
       <Carousel />
-
-      <WelcomeAstro />
-
-      <Services />
+      <div style={{ marginTop: "12px" }}>
+        <WelcomeAstro />
+      </div>
+      <div style={{ marginTop: "12px" }}>
+        <Services />
+      </div>
       {/* <Awards /> */}
       <ZodiacSigns />
       <Grid mt={2} mb={3} p={2} sx={{ backgroundColor: "#ededed" }}>

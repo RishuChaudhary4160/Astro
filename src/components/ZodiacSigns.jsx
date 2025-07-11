@@ -124,9 +124,9 @@ const ZodiacSigns = () => {
         {zodiacSigns.map((item, index) => (
           <Grid
             item
-            xs={12}
-            sm={6}
-            md={4}
+            // xs={12}
+            // sm={6}
+            // md={4}
             key={index}
             sx={{ display: "flex", justifyContent: "center" }}
           >
@@ -136,6 +136,7 @@ const ZodiacSigns = () => {
               to={`/zodiac/${item.name.toLowerCase()}`}
               state={{ zodiac: item }}
               size="small"
+              sx={{ width: "18rem" }}
             >
               <Card
                 sx={{ width: "15rem", height: "16rem", textAlign: "center" }}
@@ -150,8 +151,10 @@ const ZodiacSigns = () => {
                   sx={{ width: "100%", height: "60%", objectFit: "cover" }}
                 />
                 <CardContent>
-                  <Typography variant="h6">{item.name}</Typography>
-                  <Typography variant="subtitle1" color="textSecondary">
+                  <Typography variant="h6" sx={{ color: "#ff9800" }}>
+                    {item.name}
+                  </Typography>
+                  <Typography variant="subtitle1" sx={{ color: "#ff9800" }}>
                     {item.hindi}
                   </Typography>
                 </CardContent>

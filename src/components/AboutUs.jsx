@@ -566,7 +566,7 @@ const About = () => {
                         transition: "all 0.3s ease-in-out",
                       },
                     }}
-                    href="/contact"
+                    href="/contactus"
                   >
                     Contact Us Now
                   </Button>
