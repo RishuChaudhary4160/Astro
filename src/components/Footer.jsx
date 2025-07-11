@@ -38,9 +38,9 @@ const Footer = () => {
   const [isHovered, setIsHovered] = React.useState(false);
   const hoverStyle = isHovered
     ? {
-        transform: "scale(1.05)",
-        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-      }
+      transform: "scale(1.05)",
+      boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+    }
     : {};
   return (
     <Box
@@ -60,19 +60,19 @@ const Footer = () => {
           <Grid
             mt={5}
             sx={{
-              display:'flex',
-              justifyContent:'center'
+              display: 'flex',
+              justifyContent: 'center'
             }}
           >
             <Grid>
-              <Grid sx={{textAlignLast: 'center'}}>
+              <Grid sx={{ textAlignLast: 'center' }}>
 
-              <img
-                src={logo}
-                alt="OM Astro Solution"
-                className="h-12 mx-auto md:mx-0 mb-2"
-                style={{ height: "10rem", width: "10rem" }}
-              />
+                <img
+                  src={logo}
+                  alt="OM Astro Solution"
+                  className="h-12 mx-auto md:mx-0 mb-2"
+                  style={{ height: "10rem", width: "10rem" }}
+                />
               </Grid>
               <Box>
                 <IconButton
@@ -293,17 +293,17 @@ const Footer = () => {
               <List sx={{ textDecoration: "underline" }}>
                 <ListItem>
                   <Typography variant="body2">
-                    <span className="mr-2">🏠</span>Ahmedabad, Gujarat, India
+                    <span className="mr-2">🏠</span>House Number 20 Sector 11 Chandigarh
                   </Typography>
                 </ListItem>
                 <ListItem>
                   <Typography variant="body2">
                     <span className="mr-2">📧</span>
                     <a
-                      href="mailto:ourastroserviceindia@gmail.com"
+                      href="mailto:brijeshbhatt5699@gmail.com"
                       className="text-white hover:text-yellow-300"
                     >
-                      ourastroserviceindia@gmail.com
+                      brijeshbhatt5699@gmail.com
                     </a>
                   </Typography>
                 </ListItem>
@@ -314,17 +314,17 @@ const Footer = () => {
                       href="tel:+9999999999999"
                       className="text-white hover:text-yellow-300"
                     >
-                      +91 0000000 999999
+                      +91 9417339708
                     </a>
                   </Typography>
                 </ListItem>
                 <ListItem>
-                  <Typography variant="body2">
+                  {/* <Typography variant="body2">
                     <span className="mr-2">🌐</span>
                     <Link to="/" className="text-white hover:text-yellow-300">
                       www.ourastroservice.com
                     </Link>
-                  </Typography>
+                  </Typography> */}
                 </ListItem>
               </List>
             </Box>
