@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import num0 from "../assets/images/8.1.png";
-import num1 from "../assets/images/9.1.png";
-import num2 from "../assets/images/10.1.png";
-import num3 from "../assets/images/11.1.png";
-import num4 from "../assets/images/12.1.png";
-import num5 from "../assets/images/13.1.png";
+// import num1 from "../assets/images/9.1.png";
+// import num2 from "../assets/images/10.1.png";
+// import num3 from "../assets/images/11.1.png";
+// import num4 from "../assets/images/12.1.png";
+// import num5 from "../assets/images/13.1.png";
 import loveMarriage from "../assets/images/ghibli/loveMarriage.jpeg";
 import Marriage from "../assets/images/ghibli/Marriage.jpeg";
 import Marital_Issues from "../assets/images/ghibli/Marital_Issues.png";

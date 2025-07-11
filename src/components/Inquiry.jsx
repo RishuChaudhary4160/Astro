@@ -84,7 +84,7 @@ const Inquiry = () => {
       <Box
         sx={{
           py: { xs: 6, md: 10 },
-          bgcolor: "linear-gradient(135deg, #fff8e1 0%, #fef3ec 100%)",
+          bgcolor: "#f5f5f5",
           borderBottom: "1px solid",
           borderColor: "grey.200",
         }}
