@@ -222,7 +222,7 @@ const Footer = () => {
                 </ListItem>
                 <ListItem>
                   <Link
-                    to="/contact"
+                    to="/contactus"
                     className="text-white hover:text-yellow-300"
                   >
                     Contact Us
