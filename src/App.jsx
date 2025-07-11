@@ -16,6 +16,7 @@ import PhotoGallery from "./components/PhotoGallery";
 import VideoGallery from "./components/VideoGallery";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Inquiry from "./components/Inquiry";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 // import background from "./assets/images/timer_bg.webp"
 
 function App() {
